@@ -1,0 +1,7 @@
+# Geheimnisse und lokale Dateien – nie veröffentlichen
+secret.json
+__pycache__/
+.claude/
+_site/
+*.tmp
+docs/

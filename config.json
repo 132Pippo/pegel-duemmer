@@ -1,0 +1,8 @@
+{
+  "api_base": "https://bis.azure-api.net/PegelonlineNeu/REST/",
+  "station_id": 249,
+  "station_name": "Dümmer-Ost",
+  "parameter_id": 1,
+  "days": 30,
+  "csv_path": "data/duemmer-ost.csv"
+}

@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pegel Dümmer-Ost</title>
+<style>
+  :root{
+    --bg:#f4f6f8; --card:#fff; --text:#1c2733; --muted:#6a7885; --line:#dfe5ea;
+    --accent:#1b6ca8; --accent-fill:rgba(27,108,168,.12); --up:#c0392b; --down:#1b7f4b; --hist:#b8741a; --soll:#5b6672; --soll-dev:#c4314b; --over:rgba(27,108,168,.08); --under:rgba(209,52,79,.10); --rain:rgba(90,140,170,.55); --evap:rgba(205,120,50,.55); --evap-line:#b3541e;
+    --gain:rgba(46,150,90,.28); --loss:rgba(214,96,40,.28); --gain-text:#23804f; --loss-text:#c0541c; --bil:#3d4a55; --regatta:rgba(110,92,168,.10); --regatta-edge:rgba(110,92,168,.38);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#10161c; --card:#18212a; --text:#e6edf3; --muted:#8a99a8; --line:#2a3642;
+      --accent:#4aa3df; --accent-fill:rgba(74,163,223,.15); --up:#ff7b6b; --down:#4cc38a; --hist:#e0a050; --soll:#9aa7b4; --soll-dev:#ff7b93; --over:rgba(74,163,223,.11); --under:rgba(255,107,129,.12); --rain:rgba(130,180,210,.5); --evap:rgba(235,155,95,.5); --evap-line:#ff9b5e;
+      --gain:rgba(76,195,138,.25); --loss:rgba(255,140,80,.25); --gain-text:#4cc38a; --loss-text:#ff9b5e; --bil:#c9d3dc; --regatta:rgba(170,150,230,.14); --regatta-edge:rgba(170,150,230,.42); }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,Segoe UI,sans-serif;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px}
+  h1{font-size:1.3rem;margin:4px 0 2px}
+  .sub{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+  /* Jetzt-Zustand: vier große Kacheln (2×2 bei schmalem Fenster) */
+  .hero{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+  @media (max-width:900px){.hero{grid-template-columns:repeat(2,1fr)}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 1px 2px rgba(20,40,60,.05)}
+  .label{color:var(--muted);font-size:.88rem}
+  .value{font-size:1.9rem;font-weight:600;letter-spacing:-.01em;margin-top:2px;white-space:nowrap}
+  .value small{font-size:.95rem;font-weight:400;color:var(--muted)}
+  .hint{color:var(--muted);font-size:.88rem;margin-top:2px}
+  .value.over{color:var(--accent)} .value.under{color:var(--soll-dev)}
+  /* Wetterbilanz: schmale Zeile unter den Kacheln */
+  .wx{display:flex;flex-wrap:wrap;gap:4px 28px;align-items:baseline;padding:10px 14px;margin-bottom:16px;font-size:.92rem}
+  .wx .lab{color:var(--muted);font-size:.88rem;margin-right:6px}
+  .wx .muted,.wx small{color:var(--muted)}
+  .wx b.gain{color:var(--gain-text)} .wx b.loss{color:var(--loss-text)}
+  /* Bedienleiste */
+  .controls{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-bottom:10px}
+  .seg{display:inline-flex}
+  .seg button{border:1px solid var(--line);background:var(--card);color:var(--text);padding:6px 12px;cursor:pointer;font:inherit;
+    margin-left:-1px;border-radius:0;white-space:nowrap}
+  .seg button:first-child{border-radius:8px 0 0 8px;margin-left:0} .seg button:last-child{border-radius:0 8px 8px 0}
+  .seg button.active{background:var(--accent);border-color:var(--accent);color:#fff;position:relative;z-index:1}
+  .controls select,.controls .ctl{border:1px solid var(--line);background:var(--card);color:var(--text);
+    padding:6px 10px;border-radius:8px;font:inherit;cursor:pointer}
+  .controls .ctl.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .controls select.active{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .dd{position:relative;display:inline-block}
+  #boatBtn{border:1px solid var(--line);background:var(--card);color:var(--text);padding:4px 10px;border-radius:999px;
+    cursor:pointer;font:inherit;font-size:.85rem}
+  #boatBtn.has{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .ddpanel{position:absolute;left:0;top:calc(100% + 6px);z-index:30;background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);width:max-content;max-width:min(430px,86vw);margin:0}
+  .ddpanel[hidden]{display:none}
+  .ddpanel .boatslabel{width:100%;margin-bottom:2px}
+  .foot{display:flex;flex-wrap:wrap;gap:4px 24px;color:var(--muted);font-size:.85rem;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+  .foot b{color:var(--text);font-weight:600}
+  .up{color:var(--up)} .down{color:var(--down)}
+  .note{color:var(--muted);font-size:.85rem;min-height:1.2em;margin:0 0 8px}
+  .boats{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 8px}
+  .boatslabel{color:var(--muted);font-size:.85rem;margin-right:2px}
+  .boats button{border:1px solid var(--line);background:var(--card);color:var(--text);padding:4px 10px;
+    border-radius:999px;cursor:pointer;font:inherit;font-size:.85rem;display:inline-flex;align-items:center;gap:6px}
+  .boats button .dot{width:10px;height:10px;border-radius:50%;background:var(--c);opacity:.35}
+  .boats button.on{border-color:var(--c);box-shadow:0 0 0 1px var(--c)}
+  .boats button.on .dot{opacity:1}
+  .boats button:disabled{opacity:.5;cursor:not-allowed}
+  .ok{color:var(--down)} .bad{color:var(--up)}
+  .chartbox{position:relative;height:460px}
+  .rainbox{position:relative;height:235px;margin-top:6px}
+  .wbnote{font-size:.9rem;margin:8px 0 0;line-height:1.45}
+  .wbnote .wblabel{color:var(--muted)}
+  .wbnote .gain{color:var(--gain-text)} .wbnote .loss{color:var(--loss-text)}
+  .wbnote small{color:var(--muted)}
+  .regtip{position:fixed;display:none;z-index:50;max-width:min(420px,calc(100vw - 24px));background:var(--card);color:var(--text);
+      border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.85rem;line-height:1.35;pointer-events:none;
+      box-shadow:0 6px 20px rgba(0,0,0,.18)}
+  .regtip .rt{display:flex;gap:8px;align-items:flex-start}
+  .regtip .rt + .rt{margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+  .regtip small{color:var(--muted)}
+  .regtip{min-width:230px}
+  .regtip .th{font-weight:700;margin-bottom:6px}
+  .regtip .tr{display:flex;align-items:center;gap:8px;padding:1px 0}
+  .regtip .sw{width:10px;height:10px;border-radius:2px;flex:none}
+  .regtip .tl{color:var(--muted);min-width:84px}
+  .regtip .tv{flex:1}
+  .regtip .tsrc{color:var(--muted);font-size:.72rem;margin:2px 0 4px 18px}
+  .regtip .treg{margin-top:8px;padding-top:6px;border-top:1px solid var(--line)}
+  .regtip .up2{color:var(--accent)} .regtip .dn2{color:var(--soll-dev)}
+  /* Regatta-Vergleich */
+  .rchead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px}
+  .rchead h2{font-size:1.05rem;margin:0 8px 0 0}
+  .rchead select{font:inherit;font-size:.9rem;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text)}
+  .rcsum{font-size:.95rem;line-height:1.55;margin:8px 0 12px}
+  .rcsum small,.rc-muted{color:var(--muted)}
+  .rcbox{position:relative;height:340px;margin-bottom:6px}
+  .rcbox.sm{height:320px}
+  .rcsub{font-weight:600;margin:14px 0 4px}
+  .rctblwrap{overflow-x:auto}
+  table.rct{border-collapse:collapse;width:100%;font-size:.92rem;white-space:nowrap}
+  table.rct th,table.rct td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:right}
+  table.rct th:first-child,table.rct td:first-child,table.rct th:nth-child(2),table.rct td:nth-child(2){text-align:left}
+  table.rct th{color:var(--muted);font-weight:600;font-size:.8rem;white-space:normal;vertical-align:bottom}
+  table.rct tbody tr.rcrow{cursor:pointer} table.rct tbody tr.rcrow:hover{background:rgba(125,125,125,.1)}
+  table.rct tr.rcno td{color:var(--muted)}
+  .rcall{font-size:.85rem;color:var(--muted);display:inline-flex;gap:4px;align-items:center;cursor:pointer}
+  table.rct tfoot td{font-weight:700;border-top:2px solid var(--line);border-bottom:0}
+  table.rct .pos{color:var(--accent)} table.rct .neg{color:var(--soll-dev)}
+  .err{color:var(--up);padding:12px}
+  @media (max-width:600px){.chartbox{height:340px}.rainbox{height:210px}.value{font-size:1.55rem}.seg button{padding:6px 6px;font-size:.86rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Pegel Dümmer-Ost</h1>
+  <div class="sub" id="sub">Lade Daten…</div>
+
+  <!-- Jetzt-Zustand: vier große Kacheln -->
+  <div class="hero">
+    <div class="card"><div class="label">Wasserstand</div>
+      <div class="value" id="cur">–</div><div class="hint" id="curNN"></div></div>
+    <div class="card"><div class="label">Wassertiefe</div>
+      <div class="value" id="depth">–</div><div class="hint">Referenz: NN + 37,2 m = 1,2 m</div></div>
+    <div class="card"><div class="label">Abweichung vom Soll</div>
+      <div class="value" id="soll">–</div><div class="hint" id="sollHint">&nbsp;</div></div>
+    <div class="card"><div class="label">Trend 24 h</div>
+      <div class="value" id="d24">–</div><div class="hint" id="d1">&nbsp;</div></div>
+  </div>
+  <!-- Wetterbilanz als schmale Zeile -->
+  <div class="card wx" id="wxRow">
+    <div><span class="lab">Regen</span> 7 Tage <b id="rain7">–</b> · 30 Tage <b id="rain30">–</b></div>
+    <div><span class="lab">Verdunstung</span> 30 Tage <b id="evap30">–</b> <small class="muted">(geschätzt)</small></div>
+    <div><span class="lab">Bilanz 30 Tage</span> <b id="wb30">–</b> <span class="muted" id="wbHint"></span></div>
+  </div>
+
+  <div class="card">
+    <!-- Bedienleiste: Zeitraum als zusammenhängender Schalter, daneben Kalenderjahr und Vergleich -->
+    <div class="controls">
+      <div class="seg" id="ranges">
+        <button data-d="7">7 Tage</button>
+        <button data-d="30" class="active">30 Tage</button>
+        <button data-d="90">90 Tage</button>
+        <button data-d="365">1 Jahr</button>
+        <button data-d="0">Alles</button>
+      </div>
+      <select id="yearSel" aria-label="Kalenderjahr"><option value="">Kalenderjahr…</option></select>
+      <button id="cmpBtn" class="ctl" title="Mehrere Kalenderjahre übereinander legen">Jahre vergleichen</button>
+    </div>
+    <div class="note" id="note"></div>
+    <div class="boats" id="cmpBox" style="display:none"><span class="boatslabel">Jahre wählen:</span></div>
+    <!-- Ebenen: Chips für Regen, Verdunstung, Regatten; Tiefgänge in einem Ausklappmenü -->
+    <div class="boats layers" id="layers"><span class="boatslabel">Anzeigen</span>
+      <button id="rainBtn" class="on" style="--c:#5a8caa"><span class="dot"></span>Regen (DWD Diepholz)</button>
+      <button id="evapBtn" class="on" style="--c:#cd7832" title="Verdunstung der Wasserfläche (geschätzt: Open-Meteo ET0 × 1,08, geeicht am NLWKN-Gutachten Wolter &amp; Köhler 2012)"><span class="dot"></span>Verdunstung (geschätzt)</button>
+      <button id="regBtn" class="on" style="--c:#7d6cc0" title="Regatten des SVH (seglerinfo.de) als violette Zeiträume"><span class="dot"></span>Regatten</button>
+      <div class="dd" id="boatDd">
+        <button id="boatBtn" type="button" aria-haspopup="true" aria-expanded="false">Tiefgang <span id="boatCount"></span>▾</button>
+        <div class="boats ddpanel" id="boats" hidden><span class="boatslabel">Tiefgang einblenden (Schwert/Ruder unten)</span></div>
+      </div>
+    </div>
+    <div class="note" id="boatNote"></div>
+    <div class="chartbox"><canvas id="chart"></canvas></div>
+    <div class="rainbox" id="rainbox"><canvas id="rainChart"></canvas></div>
+    <div class="wbnote" id="wbNote" style="display:none"></div>
+    <!-- Fußzeile: Kennzahlen des angezeigten Zeitraums und Archivgröße -->
+    <div class="foot">
+      <span>Zeitraum: Min / Max <b id="minmax">–</b> · <span id="mean"></span></span>
+      <span>Archiv: <b id="count">–</b> Messwerte <span id="span"></span></span>
+    </div>
+    <div class="regtip" id="regTip"></div>
+  </div>
+  <!-- Regatta-Vergleich: Pegel und Wassertiefe zu wiederkehrenden Regatten über die Jahre -->
+  <div class="card" id="rcCard" style="margin-top:16px;display:none">
+    <div class="rchead"><h2>Regatta-Vergleich</h2>
+      <select id="rcSel" aria-label="Regatta"></select>
+      <select id="rcN" aria-label="Anzahl Ausgaben"><option value="0">alle Jahre</option><option value="10">letzte 10</option><option value="5">letzte 5</option></select>
+      <select id="rcView" aria-label="Darstellung"><option value="bar">Balken</option><option value="line">Linie</option></select>
+    </div>
+    <div class="rcsum" id="rcSum"></div>
+    <div class="rcsub">Jahresvergleich: Pegel und Wassertiefe während der Regatta <small class="rc-muted">(Mittel der Regattatage je Jahr; gestrichelt = Mittel aller Jahre)</small></div>
+    <div class="rcbox sm"><canvas id="rcB"></canvas></div>
+    <div class="rctblwrap"><table class="rct" id="rcT"></table></div>
+    <div class="note" style="margin-top:6px">Tageswerte des Pegels (Landesdatenbank/Jahrbuch/Archiv). Zeile anklicken = Jahresansicht. Soll = Bewirtschaftungsplan (heutiger Plan, rückwirkend). Wassertiefe = Wasserstand − 36,0 m NN.</div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script>
+const CSV_URL = "data/duemmer-ost.csv";
+const PEGEL_NULL_NN = 35;           // Pegelnullpunkt: NN + 35 m
+const TIEFE_NULL_NN = 36.0;         // Referenz: NN + 37,2 m entspricht 1,2 m Wassertiefe
+const tiefeM = cm => PEGEL_NULL_NN + cm/100 - TIEFE_NULL_NN;   // Wassertiefe in m
+const nnM    = cm => PEGEL_NULL_NN + cm/100;                    // Höhe in m ü. NN
+const fm = (x,d=2) => x.toFixed(d).replace(".",",");
+const fmS = v => fm(v,0).replace("-","−");                      // ganze Zahl mit echtem Minuszeichen
+const fmtDT = new Intl.DateTimeFormat("de-DE",{dateStyle:"medium",timeStyle:"short",timeZone:"Europe/Berlin"});
+const fmtD  = new Intl.DateTimeFormat("de-DE",{dateStyle:"medium",timeZone:"Europe/Berlin"});
+const $ = id => document.getElementById(id);
+
+const HIST_URL = "data/historie-tageswerte.csv";   // Jahrbücher (Tageswerte)
+const LDB_URL  = "data/historie-ldb.csv";           // NLWKN-Landesdatenbank (Tagesmittelwerte)
+// Historische Tageswerte als Punkte; bei Lücken > 3 Tage ein Leerpunkt, damit keine Linie quer über die Lücke läuft
+function histPts(arr){
+  const out=[];
+  for(let i=0;i<arr.length;i++){
+    if(i && arr[i].t-arr[i-1].t > 3*864e5) out.push({x:arr[i-1].t+864e5, y:null});
+    out.push({x:arr[i].t, y:arr[i].v});
+  }
+  return out;
+}
+let hist = [];           // Tageswerte aus Jahrbüchern [{t:ms, v:cm}]
+let all = [];            // [{t:ms, v:cm}]
+// Bootsklassen: Tiefgang (Rumpf + Schwert/Ruder unten) aus data/bootsklassen.json
+const BOAT_URL = "data/bootsklassen.json";
+const BOAT_COLORS = ["#7a8794"];                  // alle Tiefgangslinien einheitlich grau; der Name steht direkt an der Linie
+let boats = [], boatSel = new Set();
+// Niederschlag (DWD Diepholz, Tageswerte in mm) aus data/niederschlag.csv
+const RAIN_URL = "data/niederschlag.csv";
+let rain = [], rainOn = true, rainChart = null;    // rain: [{t:ms (12:00 UTC), v:mm}]
+// Verdunstung der Wasserfläche (Open-Meteo ET0 × 1,08, geeicht am Gutachten Wolter & Köhler 2012), Tageswerte mm
+const EVAP_URL = "data/verdunstung.csv";
+let evap = [], evapOn = true;                      // evap: [{t:ms (12:00 UTC), v:mm}]
+let rainMap = new Map(), evapMap = new Map();      // t -> mm, für Tagesbilanz
+let rainNormal = null, rainCum = false;            // Monatsnormalwerte 1991–2020 (12 Werte) / Kalenderjahr-Modus aktiv
+const AXIS_W = 62;                                 // feste Breite der Y-Achsen (px), für die Ausrichtung beider Diagramme
+const rainMonthly = () => rangeDays===0 && !yearSel;   // "Alles": Monatssummen statt Tagesbalken
+const tiefeToCm = d => (d + TIEFE_NULL_NN - PEGEL_NULL_NN)*100;    // Wassertiefe (m) -> Pegelstand (cm)
+let chart, rangeDays = 30, yearSel = null;   // yearSel: Kalenderjahr (01.01.–31.12.) oder null
+
+async function load(){
+  const txt = await (await fetch(CSV_URL,{cache:"no-store"})).text();
+  all = txt.trim().split("\n").slice(1).map(l=>{
+    const [ts,v]=l.split(","); return {t:Date.parse(ts), v:+v};
+  }).filter(p=>!isNaN(p.t) && !isNaN(p.v));
+  if(!all.length) throw new Error("Archiv ist leer – bitte zuerst fetch.py ausführen.");
+  // Historische Tageswerte (aus den NLWKN-Jahrbüchern) – optional
+  try{
+    const r = await fetch(HIST_URL,{cache:"no-store"});
+    if(r.ok) hist = (await r.text()).trim().split("\n").slice(1).map(l=>{
+      const [d,v]=l.split(","); return {t:Date.parse(d+"T12:00:00Z"), v:+v};
+    }).filter(p=>!isNaN(p.t) && !isNaN(p.v));
+  }catch(e){ hist = []; }
+  // Tageswerte aus der NLWKN-Landesdatenbank (jahrweise ergänzt) – optional; überschreiben gleiche Tage der Jahrbücher
+  try{
+    const r = await fetch(LDB_URL,{cache:"no-store"});
+    if(r.ok){
+      const ldb = (await r.text()).trim().split("\n").slice(1).map(l=>{
+        const [d,v]=l.split(","); return {t:Date.parse(d+"T12:00:00Z"), v:+v};
+      }).filter(p=>!isNaN(p.t) && !isNaN(p.v));
+      const m = new Map(hist.map(p=>[p.t,p])); ldb.forEach(p=>m.set(p.t,p));
+      hist = [...m.values()].sort((a,b)=>a.t-b.t);
+    }
+  }catch(e){}
+  // Tiefgänge der Bootsklassen – optional
+  try{
+    const r = await fetch(BOAT_URL,{cache:"no-store"});
+    if(r.ok) boats = (await r.json()).map((b,i)=>({...b,color:BOAT_COLORS[i%BOAT_COLORS.length]}));
+  }catch(e){ boats = []; }
+  // Niederschlag – optional
+  try{
+    const r = await fetch(RAIN_URL,{cache:"no-store"});
+    if(r.ok) rain = (await r.text()).trim().split("\n").slice(1).map(l=>{
+      const [d,v]=l.split(","); return {t:Date.parse(d+"T12:00:00Z"), v:+v};
+    }).filter(p=>!isNaN(p.t) && !isNaN(p.v));
+  }catch(e){ rain = []; }
+  rainNormal = rain.length ? computeRainNormal() : null;
+  // Verdunstung – optional
+  try{
+    const r = await fetch(EVAP_URL,{cache:"no-store"});
+    if(r.ok) evap = (await r.text()).trim().split("\n").slice(1).map(l=>{
+      const c=l.split(","); return {t:Date.parse(c[0]+"T12:00:00Z"), v:+c[2]};          // Spalte 3 = see_mm
+    }).filter(p=>!isNaN(p.t) && !isNaN(p.v));
+  }catch(e){ evap = []; }
+  rainMap = new Map(rain.map(p=>[p.t,p.v])); evapMap = new Map(evap.map(p=>[p.t,p.v]));
+  // Wettervorhersage (Open-Meteo) -> Pegelprognose aus Regen − Verdunstung – optional, ohne Netz einfach ohne Prognose
+  try{ await loadForecast(); }catch(e){ fc = null; }
+  // Regatten (Veranstaltungskalender) – optional
+  try{
+    const r = await fetch(REG_URL,{cache:"no-store"});
+    if(r.ok){ const j=await r.json(); regatten=parseRegatten(j); regattaQuelle=j.quelle||""; }
+  }catch(e){ regatten=[]; }
+}
+
+/* ---- Prognose der Wasserbilanz: Regen − Verdunstung laut Wettervorhersage (Open-Meteo) ----
+   Verdunstung des Sees = ET0 × 1,08 (wie in der Rückschau). Die Vorhersage erscheint im unteren Diagramm (Balken + gestrichelte
+   Bilanzlinie). 1 mm Bilanz ≈ 0,1 cm Pegel – Zufluss der Hunte und Wehrsteuerung sind NICHT enthalten (Rückrechnung 2010–2024:
+   Fehler eines reinen Regen−Verdunstungs-Pegels nach 7 Tagen im Mittel 2,1 cm im Sommerstau, 4,7 cm in der übrigen Zeit). */
+let fc = null;                                      // {days:[{x:ms (12:00 UTC), P:mm, E:mm}]}
+const FC_ET = 1.08;
+async function loadForecast(){
+  fc = null;
+  const last = all[all.length-1];
+  if(Date.now()-last.t > 3*864e5) return;           // Archiv veraltet -> keine Prognose
+  const url = "https://api.open-meteo.com/v1/forecast?latitude=52.53&longitude=8.35&daily=precipitation_sum,et0_fao_evapotranspiration&timezone=UTC&past_days=3&forecast_days=8";
+  const ctl = new AbortController(); const to = setTimeout(()=>ctl.abort(), 8000);
+  let j; try{ const r = await fetch(url,{signal:ctl.signal}); if(!r.ok) return; j = await r.json(); } finally{ clearTimeout(to); }
+  const d = j.daily; if(!d || !d.time) return;
+  const days = [];
+  for(let i=0;i<d.time.length;i++){
+    const P=d.precipitation_sum[i], E=d.et0_fao_evapotranspiration[i]; if(P==null || E==null) continue;
+    days.push({x:Date.parse(d.time[i]+"T12:00:00Z"), P, E:+(E*FC_ET).toFixed(2)});
+  }
+  if(days.length) fc = {days};
+}
+const fcShown = () => fc && !cmp && !yearSel && rangeDays>0;
+
+// Niederschlagsbalken für den sichtbaren Zeitraum (bei "Alles": Monatssummen)
+function rainPts(xmin, xmax, arr=rain){                    // arr: Niederschlag (Standard) oder Verdunstung
+  if(!rainOn || !arr.length || xmin===null) return [];
+  const tol = (yearSel || rainMonthly()) ? 0 : 432e5;     // Randtoleranz nur bei gleitenden Zeiträumen
+  const sl = arr.filter(p=>p.t>=xmin-tol && p.t<=xmax+tol);
+  if(!rainMonthly()) return sl.map(p=>({x:p.t,y:p.v}));
+  const m = new Map();
+  for(const p of sl){ const d=new Date(p.t), k=d.getUTCFullYear()*12+d.getUTCMonth(); m.set(k,(m.get(k)||0)+p.v); }
+  return [...m].map(([k,s])=>({x:Date.UTC(Math.floor(k/12),k%12,15), y:+s.toFixed(1)}));
+}
+
+// Für lange Zeiträume auf Stunden-/Tagesmittel verdichten, damit das Diagramm flüssig bleibt
+function bucket(data, ms){
+  const m=new Map();
+  for(const p of data){ const k=Math.floor(p.t/ms)*ms; const e=m.get(k)||{s:0,n:0}; e.s+=p.v; e.n++; m.set(k,e); }
+  return [...m].map(([k,e])=>({x:k+ms/2, y:+(e.s/e.n).toFixed(1)}));
+}
+
+// Kalenderjahr 01.01.–31.12. (Grenzen in MEZ; Januar hat keine Sommerzeit)
+function yearView(y){
+  const t0=Date.UTC(y,0,1)-36e5, t1=Date.UTC(y+1,0,1)-36e5-1;
+  const slice = all.filter(p=>p.t>=t0 && p.t<=t1);
+  const hs = hist.filter(p=>p.t>=t0 && p.t<=t1);
+  return {slice: hs.concat(slice), pts: bucket(slice, 864e5), hpts: histPts(hs),
+          spts: sollSeries(t0,t1), t0, t1};
+}
+
+/* ---- Regatten (Veranstaltungskalender, Quelle seglerinfo.de) aus data/regatten.json ----
+   Zeiträume werden als Bänder in beide Diagramme gezeichnet; die Liste darunter nennt Pegel, Wassertiefe und Niederschlag
+   während der jeweiligen Regatta. Zeitgrenzen: Berliner Kalendertage (Mitternacht, MEZ/MESZ näherungsweise). */
+const REG_URL = "data/regatten.json";
+let regatten = [], regattaOn = true, regattaQuelle = "";
+const berlinMidnight = (y,m,d) => Date.UTC(y,m,d) - ((m>=3 && m<=8) ? 2 : 1)*36e5;     // m: 0–11, April–September = Sommerzeit
+// Nur stattgefundene Regatten: abgesagte Klassen werden entfernt, Regatten ohne durchgeführte Klasse entfallen ganz
+// (in data/regatten.json bleiben sie mit "abgesagt": true als Nachweis stehen).
+function parseRegatten(j){
+  const evs=(j.regatten||[]).map(r=>{
+    const [y0,m0,d0]=r.start.split("-").map(Number), [y1,m1,d1]=r.end.split("-").map(Number);
+    const klassen=(r.klassen||[]).filter(k=>!k.abgesagt);
+    return {...r, klassen, t0:berlinMidnight(y0,m0-1,d0), t1:berlinMidnight(y1,m1-1,d1)+864e5, abgesagt:false};
+  }).filter(r=>r.klassen.length>0).sort((a,b)=>a.t0-b.t0);
+  return evs;
+}
+// Regatta-Beschreibung für die Hover-Karte
+function regDates(e){
+  const last=e.t1-864e5, f=t=>fDate.format(t+36e5*3);
+  return (e.t1-e.t0)>864e5 ? `${f(e.t0)} – ${f(last)}` : f(e.t0);
+}
+function regWerte(e){
+  const st = regattaStats(e);
+  if(st.mean!==undefined)
+    return `Wasserstand Ø ${fm(nnM(st.mean))} m ü. NN (${fm(nnM(st.min))}–${fm(nnM(st.max))}) · `
+         + `Wassertiefe Ø ${fm(tiefeM(st.mean))} m, min. ${fm(tiefeM(st.min))} m`
+         + (st.rain!==null ? ` · Regen ${fm(st.rain,1)} mm` : "");
+  return st.rain!==null ? `Regen ${fm(st.rain,1)} mm` : "keine Pegeldaten";
+}
+// Chart.js-Plugin: Regatten als Bänder hinter den Kurven (Details: Hover-Karte)
+const regattaPlugin = {
+  id:"regatten",
+  beforeDatasetsDraw(ch){
+    if(!regattaOn || cmp || !regatten.length) return;
+    const a=ch.chartArea, x=ch.scales.x; if(!a||!x) return;
+    const ctx=ch.ctx; ctx.save(); ctx.beginPath(); ctx.rect(a.left,a.top,a.width,a.height); ctx.clip();
+    // Überlappende oder direkt aneinandergrenzende Regatten werden zu EINEM Band zusammengefasst (sonst doppelte
+    // Deckkraft und Doppelränder); die Einzelheiten stehen in der Hover-Karte.
+    const bands=[];
+    for(const ev of regatten){                                       // regatten ist nach Beginn sortiert
+      const last=bands[bands.length-1];
+      if(last && ev.t0<=last.t1) last.t1=Math.max(last.t1,ev.t1); else bands.push({t0:ev.t0,t1:ev.t1});
+    }
+    for(const b of bands){
+      const x0=x.getPixelForValue(b.t0), x1=x.getPixelForValue(b.t1);
+      if(x1<a.left || x0>a.right) continue;
+      const w=Math.max(3,x1-x0);
+      ctx.fillStyle = css("--regatta"); ctx.fillRect(x0,a.top,w,a.height);
+      if(w>=7){                                                      // Rand nur bei breiten Bändern; schmale bleiben eine saubere Fläche
+        ctx.fillStyle = css("--regatta-edge"); ctx.fillRect(x0,a.top,1,a.height); ctx.fillRect(x0+w-1,a.top,1,a.height);
+      }
+    }
+    ctx.restore();
+  }
+};
+// Kennzahlen während einer Regatta: Pegel (Tageswerte), Wassertiefe, Niederschlag
+function regattaStats(ev){
+  let vals = hist.filter(p=>p.t>=ev.t0 && p.t<ev.t1).map(p=>p.v);
+  if(!vals.length) vals = all.filter(p=>p.t>=ev.t0 && p.t<ev.t1).map(p=>p.v);
+  const rs = rain.filter(p=>p.t>=ev.t0 && p.t<ev.t1);
+  const out = {rain: rs.length ? rs.reduce((a,p)=>a+p.v,0) : null};
+  if(vals.length){
+    out.mean = vals.reduce((a,v)=>a+v,0)/vals.length; out.min = Math.min(...vals); out.max = Math.max(...vals);
+  }
+  return out;
+}
+/* ---- Gemeinsamer Zeiger und Tooltip für beide Diagramme ----
+   Fährt die Maus über eines der Diagramme, erscheint in beiden eine senkrechte Linie am selben Zeitpunkt, und ein einziger
+   Tooltip nennt alles zu diesem Tag: Wasserstand, Soll und Abweichung, Regen, Verdunstung, Bilanz und ggf. die Regatta. */
+let crossT = null;                                  // Zeitpunkt (ms) unter dem Mauszeiger, null = keiner
+const crossPlugin = {
+  id:"cross",
+  afterDatasetsDraw(ch){
+    if(crossT===null) return;
+    const a=ch.chartArea, x=ch.scales.x; if(!a||!x) return;
+    const px=x.getPixelForValue(crossT); if(px<a.left || px>a.right) return;
+    const ctx=ch.ctx; ctx.save(); ctx.strokeStyle=css("--muted"); ctx.globalAlpha=.75; ctx.lineWidth=1; ctx.setLineDash([3,3]);
+    ctx.beginPath(); ctx.moveTo(px+.5,a.top); ctx.lineTo(px+.5,a.bottom); ctx.stroke(); ctx.restore();
+  }
+};
+// Tiefgangslinien: der Name steht direkt an der Linie (rechts), nicht in der Legende
+const boatLabelPlugin = {
+  id:"boatlabel",
+  afterDatasetsDraw(ch){
+    const a=ch.chartArea, y=ch.scales.y; if(!a||!y) return;
+    const ctx=ch.ctx; ctx.save(); ctx.font="11px system-ui, sans-serif"; ctx.fillStyle=css("--muted"); ctx.textAlign="right"; ctx.textBaseline="bottom";
+    const used=[];
+    for(const ds of ch.data.datasets){
+      if(!ds.isBoat || !ds.data.length) continue;
+      const py=y.getPixelForValue(ds.data[0].y); if(py<a.top || py>a.bottom) continue;
+      let yy=py-2; while(used.some(u=>Math.abs(u-yy)<13)) yy-=13;     // gleiche Höhe -> Beschriftungen übereinander
+      used.push(yy);
+      const w=ctx.measureText(ds.label).width;                          // helle Unterlage, damit die Beschriftung über der Kurve lesbar bleibt
+      ctx.fillStyle=css("--card"); ctx.globalAlpha=.85; ctx.fillRect(a.right-w-8, yy-13, w+8, 14); ctx.globalAlpha=1;
+      ctx.fillStyle=css("--muted"); ctx.fillText(ds.label, a.right-4, yy);
+    }
+    ctx.restore();
+  }
+};
+// Nächster Punkt zu t in einer nach x sortierten Reihe (Punkte ohne Wert überspringen)
+function nearestPt(arr, t){
+  if(!arr || !arr.length) return null;
+  let lo=0, hi=arr.length-1;
+  while(lo<hi){ const m=(lo+hi)>>1; if(arr[m].x<t) lo=m+1; else hi=m; }
+  let best=null;
+  for(let i=Math.max(0,lo-2); i<=Math.min(arr.length-1,lo+1); i++){
+    const p=arr[i]; if(p.y==null) continue;
+    if(best===null || Math.abs(p.x-t)<Math.abs(best.x-t)) best=p;
+  }
+  return best;
+}
+function regatBandsAt(ch, px){
+  if(!ch || !regattaOn || cmp || !regatten.length) return [];
+  const x=ch.scales.x, a=ch.chartArea; if(!x||!a||px<a.left||px>a.right) return [];
+  return regatten.filter(ev=>{
+    const x0=x.getPixelForValue(ev.t0), x1=x.getPixelForValue(ev.t1), c=(x0+x1)/2, w=Math.max(8,x1-x0);
+    return px>=c-w/2 && px<=c+w/2;
+  });
+}
+const fWd = new Intl.DateTimeFormat("de-DE",{timeZone:"Europe/Berlin",weekday:"long",day:"2-digit",month:"2-digit",year:"numeric"});
+function crossHtml(t, px){
+  const mc=chart, rc=rainChart, out=[];
+  const monthly = rainMonthly(), sg = v => (v>0?"+":v<0?"−":"")+fm(Math.abs(v),1);
+  const row = (label, val, sw) => `<div class="tr"><span class="sw" style="${sw?`background:${sw}`:"visibility:hidden"}"></span><span class="tl">${label}</span><span class="tv">${val}</span></div>`;
+  const dsOf = c => (c && c.data.datasets) || [];
+  let head = cmp ? fDay.format(t) : (monthly ? fMonLong.format(t) : fWd.format(t));
+  if(cmp){
+    // Jahresvergleich: je gewähltes Jahr Wasserstand und Bilanz an diesem Kalendertag
+    const lines = dsOf(mc).filter(d=>d.isCmp), bil = dsOf(rc).filter(d=>d.isCmp);
+    for(const d of lines){
+      const p = nearestPt(d.data, t); if(!p || Math.abs(p.x-t)>1.5*864e5) continue;
+      const b = nearestPt((bil.find(x=>x.label===d.label)||{}).data, t);
+      out.push(row(d.label, `${fm(nnM(p.y))} m ü. NN` + (b ? ` · Bilanz ${sg(b.y)} mm` : ""), d.borderColor));
+    }
+    const sp = dsOf(mc)[2].data.length ? sollCmAt(t) : null;
+    if(sp!==null) out.push(row("Soll", `${fm(nnM(sp))} m ü. NN`, css("--soll")));
+  } else {
+    // Wasserstand: nächster Messpunkt (Pegelonline oder Jahrbuch/Landesdatenbank)
+    const cand = [[dsOf(mc)[0], "Pegelonline"], [dsOf(mc)[1], "Jahrbuch / Landesdatenbank"]].map(([d,src])=>({p:d&&nearestPt(d.data,t), src}))
+      .filter(c=>c.p && Math.abs(c.p.x-t) <= 1.5*864e5).sort((a,b)=>Math.abs(a.p.x-t)-Math.abs(b.p.x-t))[0];
+    if(cand){
+      const lvl = cand.p.y, soll = sollCmAt(cand.p.x), dev = lvl-soll;
+      if(!monthly && !yearSel && rangeDays!==null && rangeDays>0 && rangeDays<=90) head = fDT.format(cand.p.x)+" Uhr";   // 15-Minuten-Werte: Uhrzeit
+      out.push(row("Wasserstand", `<b>${fm(nnM(lvl))} m ü. NN</b> · Tiefe ${fm(tiefeM(lvl))} m`, css("--accent")));
+      out.push(`<div class="tsrc">Quelle: ${cand.src}</div>`);
+      out.push(row("Soll", `${fm(nnM(soll))} m ü. NN · <b class="${dev>=0?"up2":"dn2"}">${dev>=0?"+":"−"}${fm(Math.abs(dev),0)} cm ${dev>=0?"über":"unter"} Soll</b>`, css("--soll")));
+    }
+    // Regen, Verdunstung, Bilanz
+    const d0 = dsOf(rc)[0], d3 = dsOf(rc)[3], d4 = dsOf(rc)[4], tol = monthly ? 16*864e5 : .6*864e5;
+    const pr = d0 && nearestPt(d0.data,t), pe = d3 && nearestPt(d3.data,t), pb = d4 && nearestPt(d4.data,t);
+    const ok = p => p && Math.abs(p.x-t) <= tol;
+    const unit = monthly ? "mm im Monat" : "mm";
+    const fR = dsOf(rc)[5] && nearestPt(dsOf(rc)[5].data,t), fE = dsOf(rc)[6] && nearestPt(dsOf(rc)[6].data,t), fB = dsOf(rc)[7] && nearestPt(dsOf(rc)[7].data,t);
+    if(ok(fR)){
+      out.push(row("Regen (Vorhersage)", `${fm(fR.y,1)} mm`, css("--rain")));
+      if(ok(fE)) out.push(row("Verdunstung (Vorhersage)", `${fm(Math.abs(fE.y),1)} mm`, css("--evap")));
+      if(ok(fB)) out.push(row("Bilanz (Prognose)", `<b class="${fB.y>=0?"up2":"dn2"}">${sg(fB.y)} mm</b> <small>(${sg(fB.y/10)} cm Wasserstand, ohne Zufluss/Wehr)</small>`, fB.y>=0?"#2e965a":"#d66028"));
+    }
+    if(rainOn && ok(pr)) out.push(row("Regen", `${fm(pr.y,1)} ${unit}`, css("--rain")));
+    if(ok(pe)) out.push(row("Verdunstung", `${fm(Math.abs(pe.y),1)} ${unit} <small>(geschätzt)</small>`, css("--evap")));
+    if(ok(pb)){
+      const what = monthly ? "Bilanz im Monat" : (yearSel ? "Bilanz seit 1.1." : "Bilanz seit Beginn");
+      out.push(row(what, `<b class="${pb.y>=0?"up2":"dn2"}">${sg(pb.y)} mm</b> <small>(${sg(pb.y/10)} cm Wasserstand · ${pb.y>=0?"mehr Regen":"mehr Verdunstung"})</small>`, pb.y>=0?"#2e965a":"#d66028"));
+    }
+    // Regatta an diesem Zeitpunkt
+    const hits = regatBandsAt(mc, mc.scales.x.getPixelForValue(t));
+    for(const ev of hits) out.push(`<div class="treg"><b>${ev.name}</b><br><small>${regDates(ev)} · ${ev.klassen.map(k=>k.klasse).join(", ")}</small></div>`);
+  }
+  return `<div class="th">${head}</div>` + out.join("");
+}
+function attachCrosshair(canvas, getChart){
+  const tip=$("regTip"); let raf=0;
+  const redraw=()=>{ if(raf) return; raf=requestAnimationFrame(()=>{ raf=0; if(chart) chart.draw(); if(rainChart) rainChart.draw(); }); };
+  const hide=()=>{ if(crossT!==null){ crossT=null; redraw(); } tip.style.display="none"; };
+  canvas.addEventListener("mousemove",e=>{
+    const ch=getChart(), a=ch&&ch.chartArea; if(!ch||!a) return;
+    const r=canvas.getBoundingClientRect(), px=e.clientX-r.left, py=e.clientY-r.top;
+    if(px<a.left || px>a.right || py<a.top || py>a.bottom){ hide(); return; }
+    crossT = ch.scales.x.getValueForPixel(px);
+    redraw();
+    tip.innerHTML = crossHtml(crossT, px); tip.style.display = "block";
+    const tw=tip.offsetWidth, th=tip.offsetHeight; let left=e.clientX+16, top=e.clientY+16;
+    if(left+tw>innerWidth-8) left=Math.max(8,e.clientX-tw-16);
+    if(top+th>innerHeight-8) top=Math.max(8,e.clientY-th-16);
+    tip.style.left=left+"px"; tip.style.top=top+"px";
+  });
+  canvas.addEventListener("mouseleave",hide);
+}
+
+/* ---- Jahresvergleich: mehrere Kalenderjahre übereinander, gemeinsame Achse Januar–Dezember ----
+   Alle Jahre werden auf das Referenzjahr 2000 (Schaltjahr) abgebildet, damit gleiche Kalendertage senkrecht übereinanderliegen. */
+let cmp = false;                                   // Vergleichsmodus aktiv
+const cmpSel = new Set();                          // gewählte Jahre
+const CMP_COLORS = ["#1b6ca8","#e07b00","#14a38b","#8e5bd0","#c2185b","#7a8f1f","#a0653a","#d1344f","#2c7fb8","#6b7b8c"];
+const cmpColor = y => CMP_COLORS[y % CMP_COLORS.length];          // feste Farbe je Jahr
+const CMP_T0 = Date.UTC(2000,0,1)-36e5, CMP_T1 = Date.UTC(2001,0,1)-36e5-1;
+const refX = t => { const d=new Date(t); return Date.UTC(2000,d.getUTCMonth(),d.getUTCDate(),12); };
+// Tageswerte (cm) eines Kalenderjahres: Jahrbuch/Landesdatenbank, für das laufende Archiv Tagesmittel aus den 15-Minuten-Werten
+function cmpDaily(y){
+  const m = new Map();
+  hist.forEach(p=>{ if(new Date(p.t).getUTCFullYear()===y) m.set(refX(p.t), p.v); });
+  const cur = all.filter(p=>new Date(p.t).getUTCFullYear()===y);
+  if(cur.length) bucket(cur, 864e5).forEach(p=>{ const k=refX(p.x); if(!m.has(k)) m.set(k,p.y); });
+  return [...m].sort((a,b)=>a[0]-b[0]).map(([x,y])=>({x,y}));
+}
+// Kumulierter Niederschlag seit 1. Januar (nur wenn der 1. Januar in den Daten ist)
+function cmpRainCum(y){
+  if(!rain.some(p=>p.t===Date.UTC(y,0,1,12))) return [];
+  let s=0; return rain.filter(p=>new Date(p.t).getUTCFullYear()===y).map(p=>({x:refX(p.t), y:+(s+=p.v).toFixed(1)}));
+}
+// Mittelkurve der Bilanz Regen − Verdunstung (kumuliert seit 1.1.) über die vollständigen Jahre BIL_Y0–BIL_Y1;
+// dient im Kalenderjahr als Vergleichsmaßstab ("nasser/trockener als im Mittel"). Der 29. Februar bleibt außen vor.
+const BIL_Y0 = 2000, BIL_Y1 = 2024; let bilMeanCache = null;
+function bilanzMean(){
+  if(bilMeanCache) return bilMeanCache;
+  const sum=new Map(), cnt=new Map();
+  for(let y=BIL_Y0;y<=BIL_Y1;y++){
+    if(!rain.some(p=>p.t===Date.UTC(y,0,1,12))) continue;
+    let s=0, ok=true; const days=[];
+    for(const p of rain){
+      if(new Date(p.t).getUTCFullYear()!==y) continue;
+      const e=evapMap.get(p.t); if(e===undefined){ ok=false; break; }
+      s += p.v-e; days.push([p.t,s]);
+    }
+    if(!ok || days.length<365) continue;
+    for(const [t,v] of days){
+      const d=new Date(t), key=d.getUTCMonth()*100+d.getUTCDate(); if(key===129) continue;
+      sum.set(key,(sum.get(key)||0)+v); cnt.set(key,(cnt.get(key)||0)+1);
+    }
+  }
+  bilMeanCache = [...sum].map(([k,v])=>({m:Math.floor(k/100), d:k%100, v:v/cnt.get(k)})).sort((a,b)=>a.m-b.m||a.d-b.d);
+  return bilMeanCache;
+}
+const bilanzMeanLine = y => bilanzMean().map(p=>({x:Date.UTC(y,p.m,p.d,12), y:+p.v.toFixed(1)}));
+
+// Bilanz Regen − Verdunstung (mm), kumuliert seit 1. Januar – nur wenn der 1. Januar in den Regendaten liegt
+function cmpBilanzCum(y){
+  if(!rain.some(p=>p.t===Date.UTC(y,0,1,12))) return [];
+  let s=0; const out=[];
+  for(const p of rain){
+    if(new Date(p.t).getUTCFullYear()!==y) continue;
+    const e=evapMap.get(p.t); if(e===undefined) break;             // Verdunstung für diesen Tag (noch) nicht vorhanden
+    s += p.v-e; out.push({x:refX(p.t), y:+s.toFixed(1)});
+  }
+  return out;
+}
+function cmpView(){
+  const lines = [...cmpSel].sort((a,b)=>a-b).map(y=>({y, pts:cmpDaily(y), color:cmpColor(y)}));
+  const slice = [].concat(...lines.map(l=>l.pts.map(p=>({v:p.y}))));
+  return {slice, pts:[], hpts:[], spts:sollSeries(CMP_T0,CMP_T1), t0:CMP_T0, t1:CMP_T1, lines};
+}
+
+function view(){
+  if(cmp) return cmpView();
+  if(yearSel) return yearView(yearSel);
+  const last = all[all.length-1].t;
+  const from = rangeDays ? last - rangeDays*864e5 : 0;
+  const slice = all.filter(p=>p.t>=from);
+  let pts;
+  if(rangeDays===0){
+    pts = bucket(slice, 864e5);          // "Alles": Tagesmittel, vergleichbar mit den Jahrbuch-Tageswerten
+  } else if(slice.length>4000){
+    pts = bucket(slice, 36e5);
+  } else pts = slice.map(p=>({x:p.t,y:p.v}));
+  const hpts = rangeDays===0 ? histPts(hist) : [];
+  const xs = pts.concat(hpts).map(p=>p.x);
+  const spts = sollSeries(Math.min(...xs), Math.max(...xs));
+  return {slice: rangeDays===0 ? hist.concat(slice) : slice, pts, hpts, spts};
+}
+
+/* ---- Solllinie: Regelwasserstand der Dümmerbewirtschaftung (Neuregelung, gültig seit 04/2009) ----
+   Quelle: Grafik "Neuregelung der Dümmerbewirtschaftung – Regelungsschema" (docs/bewirtschaftungsplan-regelungsschema.jpg).
+   Die Termine sind aus der Grafik abgelesen (Monatsmitten/-anfänge), nicht aus einem Text übernommen. */
+const SOLL_AB = Date.UTC(2009,3,1);                 // 1. April 2009
+const nnToCm = n => +((n - PEGEL_NULL_NN)*100).toFixed(1);
+function sollVertices(y){
+  const d=(m,dd,h=0)=>Date.UTC(y,m,dd,h);
+  return [
+    [d(0,1),  36.80], [d(1,15), 36.80],            // Winterstau bis Mitte Februar
+    [d(2,15), 37.20], [d(8,1),  37.20],            // Anstieg bis Mitte März, dann Sommerstau bis 1. September
+    [d(10,1,-1), 37.00], [d(10,1), 36.80]          // linearer Abfall bis 1. November, dann Sprung auf Winterstau
+  ];
+}
+function sollVerts(t0,t1){
+  const y0=new Date(t0).getUTCFullYear(), y1=new Date(t1).getUTCFullYear(); let v=[];
+  for(let y=y0-1;y<=y1+1;y++) v=v.concat(sollVertices(y));
+  return v;
+}
+function sollAt(v,t){
+  for(let i=1;i<v.length;i++) if(t<=v[i][0]){
+    const [ta,a]=v[i-1],[tb,b]=v[i]; return tb===ta ? b : a+(b-a)*(t-ta)/(tb-ta);
+  }
+  return v[v.length-1][1];
+}
+function sollSeries(t0,t1){
+  if(!(t1>t0)) return [];                           // der heutige Plan wird für alle Jahre angewendet
+  const v=sollVerts(t0,t1), out=[{x:t0,y:nnToCm(sollAt(v,t0))}];
+  for(const [t,n] of v) if(t>t0 && t<t1) out.push({x:t,y:nnToCm(n)});
+  out.push({x:t1,y:nnToCm(sollAt(v,t1))});
+  return out;
+}
+const sollCmAt = t => nnToCm(sollAt(sollVerts(t,t),t));
+
+function render(){
+  crossT = null; $("regTip").style.display = "none";                 // Zeiger/Tooltip beim Ansichtswechsel zurücksetzen
+  const {slice, pts, hpts, spts, t0, t1, lines} = view();
+  const vals = slice.map(p=>p.v);
+  if(vals.length){
+    let min=Infinity, max=-Infinity, sum=0;
+    for(const v of vals){ if(v<min) min=v; if(v>max) max=v; sum+=v; }
+    $("minmax").innerHTML = `${fm(nnM(min))} / ${fm(nnM(max))} <small>m ü. NN</small>`;
+    $("mean").textContent = `Mittel ${fm(nnM(sum/vals.length))} m ü. NN`;
+  } else { $("minmax").textContent = "–"; $("mean").textContent = "keine Daten"; }
+  $("note").textContent = cmp ? cmpNote(lines) : (yearSel ? yearNote(yearSel, slice) : "");
+
+  if(!chart){
+    chart = new Chart($("chart"),{
+      type:"line", plugins:[regattaPlugin, crossPlugin, boatLabelPlugin],
+      data:{datasets:[
+        // Der Wasserstand ist in jeder Ansicht dieselbe kräftige blaue Linie; die Quelle steht im Hover-Tooltip.
+        // Die Fläche zwischen Wasserstand und Soll ist blau (über Soll) bzw. rot (unter Soll) getönt.
+        {label:"Wasserstand",data:pts,borderColor:css("--accent"),backgroundColor:"transparent",
+          borderWidth:2.2,pointRadius:0,pointHitRadius:0,fill:{target:2,above:css("--over"),below:css("--under")},tension:.15},
+        {label:"Wasserstand (Jahrbuch / Landesdatenbank)",data:hpts,borderColor:css("--accent"),backgroundColor:"transparent",
+          borderWidth:2.2,pointRadius:0,pointHitRadius:0,fill:{target:2,above:css("--over"),below:css("--under")},tension:.15},
+        {label:"Soll (Bewirtschaftungsplan)",data:spts,borderColor:css("--soll"),backgroundColor:"transparent",
+          borderWidth:1.6,borderDash:[6,4],pointRadius:0,pointHitRadius:0,fill:false,tension:0}]},
+      options:{
+        responsive:true,maintainAspectRatio:false,animation:false,parsing:false,
+        scales:{
+          x:{type:"time",time:{tooltipFormat:"dd.MM.yyyy HH:mm 'Uhr'"},grid:{color:css("--line")},
+             ticks:{color:css("--muted"),maxRotation:0,autoSkipPadding:18,callback:xTick}},
+          // feste Achsenbreite, damit Pegel- und Niederschlagsfeld exakt untereinander ausgerichtet sind
+          // Daten bleiben intern in cm; angezeigt wird die Höhe in m ü. NN. includeBounds:false = nur runde Teilstriche
+          y:{position:"left",title:{display:true,text:"Wasserstand (m ü. NN)",color:css("--muted")},grid:{color:css("--line")},
+             ticks:{color:css("--muted"),includeBounds:false,callback:v=>fm(nnM(v),2)},afterFit:s=>{s.width=AXIS_W;}},
+          y2:{position:"right",title:{display:true,text:"Wassertiefe (m)",color:css("--muted")},grid:{drawOnChartArea:false},
+              ticks:{color:css("--muted"),includeBounds:false,callback:v=>fm(v,2)},afterFit:s=>{s.width=AXIS_W;}}
+        },
+        // Ein gemeinsamer Tooltip für beide Diagramme (HTML, siehe attachCrosshair) – der eingebaute von Chart.js ist aus
+        plugins:{tooltip:{enabled:false},
+          legend:{display:true,labels:{color:css("--text"),boxWidth:26,boxHeight:3,usePointStyle:false,font:{size:NARROW?11:13},padding:NARROW?8:14,
+            filter:(it,d)=>{ const ds=d.datasets[it.datasetIndex]; return ds.data.length>0 && !ds.isBoat && !ds.isHide; }}}}
+      }
+    });
+  } else { chart.data.datasets[0].data = pts; chart.data.datasets[1].data = hpts; chart.data.datasets[2].data = spts; }
+  // Bei "Alles" (28 Jahre) wäre die Fläche zum Soll zu dicht: dort ohne Fläche und mit dünnerem Soll
+  const dense = rangeDays===0;
+  chart.data.datasets[0].fill = dense ? false : {target:2,above:css("--over"),below:css("--under")};
+  chart.data.datasets[1].fill = dense ? false : {target:2,above:css("--over"),below:css("--under")};
+  chart.data.datasets[2].borderWidth = dense ? 0.9 : 1.6;
+  // Tiefgangslinien der gewählten Bootsklassen (waagerecht über die ganze sichtbare Zeit)
+  const xsAll = pts.concat(hpts, spts).map(p=>p.x);
+  const xmin = (yearSel||cmp) ? t0 : (xsAll.length ? Math.min(...xsAll) : null);
+  let xmax = (yearSel||cmp) ? t1 : (xsAll.length ? Math.max(...xsAll) : null);
+  chart.data.datasets.length = 3;
+  // Jahresvergleich: je gewähltes Jahr eine Linie (feste Farbe je Jahr)
+  const cpts = [];
+  if(cmp) for(const l of lines){
+    cpts.push(...l.pts);
+    chart.data.datasets.push({label:String(l.y),data:l.pts,borderColor:l.color,backgroundColor:"transparent",
+      borderWidth:1.7,pointRadius:0,pointHitRadius:6,fill:false,tension:.15,isCmp:true});
+  }
+  // Prognose: nur die x-Achse wird nach rechts verlängert (beide Diagramme); die Prognose selbst steht im unteren Diagramm
+  const fcEnd = fcShown() ? fc.days[fc.days.length-1].x + 432e5 : null;
+  if(fcEnd){
+    xmax = Math.max(xmax, fcEnd);
+    chart.data.datasets[2].data = sollSeries(xmin, xmax);
+  }
+  const bpts = [];
+  if(xmin!==null) for(const b of boats){
+    if(!boatSel.has(b.name) || b.tiefgang_m==null) continue;
+    const y = tiefeToCm(b.tiefgang_m); bpts.push({x:xmin,y});
+    chart.data.datasets.push({label:`${b.name} ${fm(b.tiefgang_m)} m${b.geprueft?"":"*"}`,
+      data:[{x:xmin,y},{x:xmax,y}],borderColor:b.color,backgroundColor:"transparent",
+      borderWidth:1.3,borderDash:[2,3],pointRadius:0,pointHitRadius:0,fill:false,isBoat:true});
+  }
+  // Beide Achsen auf denselben Bereich setzen, damit sie deckungsgleich sind
+  const ys = pts.concat(hpts, spts, bpts, cpts).map(p=>p.y).filter(v=>v!=null);
+  let lo = 160, hi = 240;                                   // Rückfall, wenn weder Daten noch Soll vorhanden sind
+  if(ys.length){
+    const mn=Math.min(...ys), mx=Math.max(...ys), pad=Math.max(2,(mx-mn)*.08);
+    lo = Math.floor(mn-pad); hi = Math.ceil(mx+pad);
+  }
+  // x-Achse fest setzen (Kalenderjahr: 01.01.–31.12.), damit Pegel- und Niederschlagsfeld deckungsgleich sind
+  const showRain = rainOn && rain.length>0;
+  chart.options.scales.x.min = xmin ?? undefined;
+  chart.options.scales.x.max = xmax ?? undefined;
+  chart.options.scales.x.time.unit = (yearSel||cmp) ? "month" : undefined;           // Kalenderjahr: ein Gitterstrich je Monat
+  // Datumsbeschriftung dann nur unter dem Niederschlagsfeld sichtbar. Wichtig: die Beschriftung bleibt aktiv (nur
+  // transparent), denn mit ticks.display=false zeichnet Chart.js hunderte Gitterlinien (Tick-Anzahl hängt an der Labelbreite).
+  chart.options.scales.x.ticks.display = true;
+  chart.options.scales.x.ticks.color = showRain ? "transparent" : css("--muted");
+  chart.options.scales.y.min = lo;  chart.options.scales.y.max = hi;
+  chart.options.scales.y2.min = tiefeM(lo); chart.options.scales.y2.max = tiefeM(hi);
+  updateBoatNote();
+  chart.update();
+  renderRain(xmin, xmax, lines);
+}
+
+// Hinweis unter den Schaltflächen im Vergleichsmodus
+function cmpNote(lines){
+  if(!lines.length) return "Wähle mindestens ein Jahr zum Vergleichen.";
+  return "Jahresvergleich (gleiche Kalendertage übereinander): " +
+    lines.map(l=>`${l.y}: ${l.pts.length ? l.pts.length+" Tage" : "keine Daten"}`).join(" · ");
+}
+
+// Niederschlagsfeld unter dem Pegeldiagramm (gleiche Zeitachse, eigene mm-Skala)
+// Klartext zur Wasserbilanz (1 mm Wasserspalte = 0,1 cm Wasserstand)
+function wbText(P, E, zeitraum){
+  const d = P-E, plus = d>=0, s = plus ? "+" : "−";
+  return `<span class="wblabel">Wasserbilanz ${zeitraum}:</span> Regen ${fm(P,0)} mm − Verdunstung ${fm(E,0)} mm = `
+    + `<b class="${plus?"gain":"loss"}">${s}${fm(Math.abs(d),0)} mm (${s}${fm(Math.abs(d)/10,1)} cm Wasserstand) · `
+    + `${plus?"mehr Regen als Verdunstung":"mehr Verdunstung als Regen"}</b>`;
+}
+function renderRain(xmin, xmax, lines){
+  const box=$("rainbox"), show = rainOn && rain.length>0 && xmin!==null;
+  box.style.display = show ? "" : "none";
+  if(!show){ $("wbNote").style.display="none"; return; }
+  const rp = rainPts(xmin, xmax), monthly = rainMonthly();
+  if(!rainChart){
+    rainChart = new Chart($("rainChart"),{
+      type:"bar", plugins:[regattaPlugin, crossPlugin],
+      data:{datasets:[
+        {label:"Regen",data:rp,backgroundColor:css("--rain"),borderWidth:0,barPercentage:.9,categoryPercentage:1},
+        // [1] Normalwert: Monatsmittel (Monatsansicht) bzw. kumulierte Normalkurve (Kalenderjahr)
+        {type:"line",label:"Normal",data:[],yAxisID:"y",borderColor:css("--text"),backgroundColor:"transparent",
+          borderWidth:1.6,borderDash:[5,3],pointRadius:0,pointHitRadius:6,fill:false,tension:0},
+        // [2] kumulierte Summe seit 1. Januar (nur Kalenderjahr)
+        {type:"line",label:"Summe seit 1.1.",data:[],yAxisID:"y2",borderColor:css("--accent"),backgroundColor:"transparent",
+          borderWidth:2,pointRadius:0,pointHitRadius:6,fill:false,tension:0},
+        // [3] Verdunstung der Wasserfläche: Balken nach unten (negative Werte), gegen den Regen nach oben
+        {type:"bar",label:"Verdunstung (See, geschätzt)",data:[],yAxisID:"y",backgroundColor:css("--evap"),borderWidth:0,barPercentage:.9,categoryPercentage:1},
+        // [4] Regen − Verdunstung, kumuliert seit 1. Januar (nur Kalenderjahr, rechte Achse)
+        // Fläche bis zur Nulllinie: grün = mehr Regen als Verdunstung, orange = mehr Verdunstung als Regen
+        {type:"line",label:"Bilanz",data:[],yAxisID:"y2",borderColor:css("--bil"),borderWidth:1.8,pointRadius:0,pointHitRadius:6,
+          tension:0,order:5,fill:{target:"origin",above:css("--gain"),below:css("--loss")}}]},
+      options:{
+        responsive:true,maintainAspectRatio:false,animation:false,parsing:false,
+        scales:{
+          x:{type:"time",offset:false,grid:{color:css("--line")},
+             ticks:{color:css("--muted"),maxRotation:0,autoSkipPadding:18,callback:xTick}},
+          // Ticks mit Minuszeichen (Verdunstung liegt unter der Nulllinie); includeBounds:false = nur runde Teilstriche
+          y:{position:"left",beginAtZero:true,title:{display:true,text:"mm",color:css("--muted")},
+             grid:{color:css("--line")},ticks:{color:css("--muted"),maxTicksLimit:5,includeBounds:false,callback:v=>fmS(v)},afterFit:s=>{s.width=AXIS_W;}},
+          // rechte Achse: Bilanz bzw. Summe (nur im Kalenderjahr und in gleitenden Zeiträumen sichtbar, sonst leer, aber gleich breit wie oben)
+          y2:{position:"right",min:0,max:1,title:{display:false,text:"Bilanz (mm)",color:css("--muted")},
+              grid:{drawOnChartArea:false},border:{display:false},ticks:{color:"transparent",maxTicksLimit:4,includeBounds:false,callback:v=>fmS(v)},afterFit:s=>{s.width=AXIS_W;}}
+        },
+        // Tooltip kommt vom gemeinsamen HTML-Tooltip (attachCrosshair)
+        plugins:{tooltip:{enabled:false},
+          legend:{display:true,position:"top",labels:{color:css("--text"),boxWidth:20,boxHeight:8,font:{size:NARROW?10:12},padding:NARROW?8:12,
+            filter:(it,d)=>d.datasets[it.datasetIndex].data.length>0 && !/\(Vorhersage\)/.test(d.datasets[it.datasetIndex].label)}}}
+      }
+    });
+  }
+  const ds = rainChart.data.datasets, sc = rainChart.options.scales;
+  ds.length = 5;                                    // Vergleichslinien der letzten Darstellung entfernen
+  if(cmp){
+    // Jahresvergleich: je Jahr die kumulierte Niederschlagssumme seit 1. Januar, dazu die Normalkurve
+    rainCum = false;
+    ds[0].data = []; ds[2].data = []; ds[3].data = []; ds[4].data = [];
+    sc.y2.min = 0;
+    // Mit Verdunstung: je Jahr die Bilanz Regen − Verdunstung seit 1.1. (kann negativ werden); ohne: nur die Regensumme
+    const bil = evapOn && evap.length>0;
+    let nl = [];
+    if(rainNormal && !bil){ let acc=0; for(let k=0;k<=12;k++){ nl.push({x:k<12 ? Date.UTC(2000,k,1)-36e5 : xmax, y:+acc.toFixed(1)}); if(k<12) acc+=rainNormal[k]; } }
+    ds[1].label = "Normal 1991–2020"; ds[1].yAxisID = "y"; ds[1].data = nl;
+    let top = Math.max(1, ...nl.map(p=>p.y)), bot = 0; const ends = [];
+    for(const l of (lines||[])){
+      const cum = bil ? cmpBilanzCum(l.y) : cmpRainCum(l.y);
+      if(bil && cum.length) ends.push({y:l.y, v:cum[cum.length-1].y, color:l.color});
+      top = Math.max(top, ...cum.map(p=>p.y)); bot = Math.min(bot, ...cum.map(p=>p.y));
+      ds.push({type:"line",label:String(l.y),data:cum,yAxisID:"y",borderColor:l.color,backgroundColor:"transparent",
+        borderWidth:1.7,pointRadius:0,pointHitRadius:6,fill:false,tension:0,isCmp:true,isBil:bil});
+    }
+    sc.y.min = bot<0 ? Math.floor(bot*1.05) : undefined; sc.y.max = Math.ceil(top*1.05);
+    // Klartext je Jahr: Bilanz am Jahresende (bzw. am letzten Tag mit Daten)
+    const note = $("wbNote");
+    if(ends.length){
+      note.innerHTML = `<span class="wblabel">Wasserbilanz seit 1.1. (Stand Jahresende bzw. letzter Tag):</span> `
+        + ends.map(e=>`<span style="color:${e.color}">●</span> ${e.y} <b class="${e.v>=0?"gain":"loss"}">${e.v>=0?"+":"−"}${fm(Math.abs(e.v),0)} mm</b>`).join(" · ")
+        + ` <small>(+ = mehr Regen, − = mehr Verdunstung)</small>`;
+      note.style.display = "";
+    } else note.style.display = "none";
+    sc.y.title.text = bil ? "Regen − Verdunstung seit 1.1. (mm)" : "Summe seit 1.1. (mm)";
+    sc.y2.max = 1; sc.y2.ticks.color = "transparent"; sc.y2.title.display = false;
+    sc.x.min = xmin; sc.x.max = xmax; sc.x.time = {unit:"month"};
+    rainChart.options.plugins.legend.display = false;   // die Jahresfarben stehen schon in der Legende oben
+    rainChart.update();
+    return;
+  }
+  sc.y.max = undefined; rainChart.options.plugins.legend.display = true;
+  ds[0].data = rp;
+  ds[0].label = monthly ? "Regen (Monatssumme)" : "Regen";
+  // Normalwert 1991–2020: Monatsansicht = Linie über den Monatsbalken, Kalenderjahr = kumulierte Normalkurve
+  let nLine=[], cLine=[], bilYear=false;
+  rainCum = false;
+  if(rainNormal && monthly){
+    nLine = rp.map(p=>({x:p.x, y:+rainNormal[new Date(p.x).getUTCMonth()].toFixed(1)}));
+    ds[1].label = "Normal 1991–2020"; ds[1].yAxisID = "y";
+  } else if(rainNormal && yearSel){
+    rainCum = true;
+    const y=yearSel;
+    // Mit Verdunstung zeigt die rechte Achse nur die Bilanz Regen − Verdunstung (lesbarer Maßstab) samt Mittelkurve;
+    // die reine Regensumme mit Normalkurve gibt es bei ausgeschalteter Verdunstung.
+    bilYear = evapOn && evap.length>0;
+    if(bilYear){
+      nLine = bilanzMeanLine(y);
+      ds[1].label = `Mittel ${BIL_Y0}–${BIL_Y1}`;
+    } else {
+      let acc=0;
+      for(let k=0;k<=12;k++){ nLine.push({x:k<12 ? Date.UTC(y,k,1)-36e5 : xmax, y:+acc.toFixed(1)}); if(k<12) acc+=rainNormal[k]; }
+      ds[1].label = "Normal 1991–2020";
+    }
+    // Summe des Jahres nur, wenn der 1. Januar in den Daten vorhanden ist (sonst wäre sie unvollständig)
+    if(rain.some(p=>p.t===Date.UTC(y,0,1,12))){ let s=0; cLine = rp.map(p=>({x:p.x, y:+(s+=p.y).toFixed(1)})); }
+    ds[1].yAxisID = "y2";
+  }
+  ds[1].data = nLine; ds[2].data = bilYear ? [] : cLine;
+  // Verdunstung: Balken nach unten. Dazu die Bilanzlinie "Regen − Verdunstung" (Delta):
+  //   Kalenderjahr = Summe seit 1.1. · gleitende Zeiträume = Summe seit Zeitraumbeginn · "Alles" = Monatsbilanz
+  const showEvap = evapOn && evap.length>0;
+  const ep = showEvap ? rainPts(xmin, xmax, evap) : [];
+  ds[3].data = ep.map(p=>({x:p.x, y:-p.y}));
+  ds[3].label = monthly ? "Verdunstung (Monatssumme, geschätzt)" : "Verdunstung (geschätzt)";
+  let bLine = [], bAxis = "y2", bLabel = "Bilanz (grün: mehr Regen · orange: mehr Verdunstung)";
+  if(showEvap && rp.length){
+    if(monthly){
+      const em = new Map(ep.map(p=>[p.x,p.y]));
+      bLine = rp.map(p=>({x:p.x, y:+(p.y-(em.get(p.x)||0)).toFixed(1)})); bAxis = "y";
+    } else if(!yearSel || cLine.length){                           // Kalenderjahr nur, wenn der 1. Januar in den Daten ist
+      let s=0;
+      for(const p of rp){
+        const e = evapMap.get(p.x); if(e===undefined) break;       // Verdunstung für diesen Tag noch nicht vorhanden
+        s += p.y - e; bLine.push({x:p.x, y:+s.toFixed(1)});
+      }
+    }
+  }
+  ds[4].data = bLine; ds[4].label = bLabel; ds[4].yAxisID = bAxis;
+  // Vorhersage: Tage nach dem letzten Tag mit Regen- und Verdunstungsdaten (nur gleitende Zeiträume, nicht "Alles"/Kalenderjahr)
+  const lastX = (bLine.length ? bLine : rp).length ? (bLine.length ? bLine : rp)[(bLine.length ? bLine : rp).length-1].x : null;
+  const fd = (fcShown() && showEvap && lastX!==null) ? fc.days.filter(p=>p.x>lastX) : [];
+  const fR = fd.map(p=>({x:p.x,y:p.P})), fE = fd.map(p=>({x:p.x,y:-p.E}));
+  const fB = []; if(fd.length && bLine.length && bAxis==="y2"){ let s=bLine[bLine.length-1].y; fB.push({x:lastX,y:s}); for(const p of fd){ s+=p.P-p.E; fB.push({x:p.x,y:+s.toFixed(1)}); } }
+  ds.push({type:"bar",label:"Regen (Vorhersage)",data:fR,yAxisID:"y",backgroundColor:"transparent",borderColor:css("--rain"),borderWidth:1.4,barPercentage:.9,categoryPercentage:1},
+          {type:"bar",label:"Verdunstung (Vorhersage)",data:fE,yAxisID:"y",backgroundColor:"transparent",borderColor:css("--evap"),borderWidth:1.4,barPercentage:.9,categoryPercentage:1},
+          {type:"line",label:"Bilanz-Prognose (Umriss = Vorhersage)",data:fB,yAxisID:"y2",borderColor:css("--bil"),borderWidth:1.8,borderDash:[4,4],pointRadius:0,pointHitRadius:6,tension:0,order:5,fill:false});
+  // Klartext unter dem Diagramm: Hat im angezeigten Zeitraum der Regen oder die Verdunstung überwogen?
+  const note = $("wbNote");
+  if(showEvap && rp.length){
+    let P=0, E=0, a=null, b=null;
+    const em = monthly ? new Map(ep.map(p=>[p.x,p.y])) : evapMap;
+    for(const p of rp){ const e=em.get(p.x); if(e===undefined) continue; P+=p.y; E+=e; if(a===null) a=p.x; b=p.x; }
+    const zr = a===null ? "" : (monthly ? `${fMonLong.format(a)} – ${fMonLong.format(b)}` : `${fDate.format(a)} – ${fDate.format(b)}`);
+    if(a===null) note.innerHTML = "";
+    else if(monthly){
+      // Über viele Jahre: Mittel pro Jahr statt Gesamtsumme (die Gesamtsumme würde einen Pegelverlust vortäuschen,
+      // den der Zufluss in Wirklichkeit ausgleicht)
+      const jahre = rp.length/12, d = (P-E)/jahre, plus = d>=0, s = plus ? "+" : "−";
+      note.innerHTML = `<span class="wblabel">Wasserbilanz ${zr} (${fm(jahre,0)} Jahre), im Mittel pro Jahr:</span> `
+        + `Regen ${fm(P/jahre,0)} mm − Verdunstung ${fm(E/jahre,0)} mm = <b class="${plus?"gain":"loss"}">${s}${fm(Math.abs(d),0)} mm · `
+        + `${plus?"mehr Regen als Verdunstung":"mehr Verdunstung als Regen"}</b> <small>– ausgeglichen wird das über den Zufluss (Hunte); `
+        + `grüne/orange Monate zeigen, wann der Regen bzw. die Verdunstung überwiegt.</small>`;
+    } else note.innerHTML = wbText(P, E, zr);
+    note.style.display = a===null ? "none" : "";
+  } else note.style.display = "none";
+  if(fd.length){
+    const dP = fd.reduce((a,p)=>a+p.P,0), dE = fd.reduce((a,p)=>a+p.E,0), dB = dP-dE;
+    note.innerHTML += `<div class="wbfc"><span class="wblabel">Vorhersage (nächste ${fd.length} Tage, Open-Meteo):</span> Regen ${fm(dP,0)} mm − Verdunstung ${fm(dE,0)} mm = `
+      + `<b class="${dB>=0?"gain":"loss"}">${dB>=0?"+":"−"}${fm(Math.abs(dB),0)} mm</b> <small>(${dB>=0?"+":"−"}${fm(Math.abs(dB)/10,1)} cm Wasserstand, ohne Zufluss der Hunte und Wehrsteuerung)</small></div>`;
+    note.style.display = "";
+  }
+  const wbOn = bLine.length>0 && bAxis==="y2";                     // Summenlinie auf der rechten Achse
+  const y2on = rainCum || wbOn;
+  // Rechte Achse mit der linken so abstimmen, dass beide Nulllinien an derselben Stelle liegen
+  sc.y.min = undefined; sc.y.max = undefined;
+  let y2min = 0, y2max = 1;
+  if(y2on){
+    const rainTop = Math.max(1, ...rp.map(p=>p.y), ...fR.map(p=>p.y)), evapTop = (ep.length||fE.length) ? Math.max(0, ...ep.map(p=>p.y), ...fE.map(p=>-p.y)) : 0;
+    const refLines = rainCum ? nLine.concat(bilYear ? [] : cLine).map(p=>p.y) : [];     // Mittelkurve (bei Bilanz) bzw. Regensumme + Normalkurve
+    const upper = Math.max(1, ...refLines, ...(wbOn ? bLine.concat(fB).map(p=>p.y) : []));
+    const lower = Math.min(0, ...refLines, ...(wbOn ? bLine.concat(fB).map(p=>p.y) : []));
+    if(lower<0){
+      // Die rechte Achse behält ihre natürliche Spanne; die linke wird so gelegt, dass beide Nulllinien übereinanderliegen.
+      // Ist die Bilanz fast nur negativ, bekommt die rechte Achse oben etwas Luft, damit die Nulllinie bei höchstens 60 % liegt.
+      const up = Math.max(upper, -lower*0.67);
+      const z = -lower/(up-lower), L = Math.max(rainTop/(1-z), evapTop/z)*1.1;
+      sc.y.min = -z*L; sc.y.max = (1-z)*L;
+      const R = (up-lower)*1.05; y2min = -z*R; y2max = (1-z)*R;
+    } else if(evapTop>0){
+      // nur positive Summen rechts: die Nulllinie der linken Achse (Verdunstungsbalken nach unten) bestimmt die rechte
+      const lMax = rainTop*1.1, lMin = -evapTop*1.1, z = -lMin/(lMax-lMin);
+      sc.y.min = lMin; sc.y.max = lMax;
+      const R = upper/(1-z)*1.05; y2min = -z*R; y2max = (1-z)*R;
+    } else { y2min = 0; y2max = Math.ceil(upper*1.05); }
+  }
+  sc.y2.min = y2min; sc.y2.max = y2max;
+  sc.y2.ticks.color = y2on ? css("--muted") : "transparent";
+  sc.y2.title.display = y2on;
+  sc.y2.title.text = rainCum ? (bilYear ? "Bilanz seit 1.1. (mm)" : "Summe seit 1.1. (mm)") : "Bilanz seit Beginn (mm)";
+  sc.x.time = {unit:(yearSel||cmp) ? "month" : undefined};            // Kalenderjahr: genau ein Gitterstrich/Name je Monat
+  sc.x.min = xmin; sc.x.max = xmax;
+  const einheit = monthly ? "mm/Monat" : "mm/Tag";
+  sc.y.title.text = NARROW ? einheit : (showEvap ? `Regen ↑ / Verdunstung ↓ (${einheit})` : `Regen (${einheit})`);
+  rainChart.update();
+}
+
+// Monatsnormalwerte 1991–2020 aus dem eigenen Archiv (Mittel der Monatssummen; nur Monate mit ≥27 Tagen)
+function computeRainNormal(){
+  const tot=new Map(), cnt=new Map();
+  for(const p of rain){
+    const d=new Date(p.t), y=d.getUTCFullYear(); if(y<1991||y>2020) continue;
+    const k=y*12+d.getUTCMonth(); tot.set(k,(tot.get(k)||0)+p.v); cnt.set(k,(cnt.get(k)||0)+1);
+  }
+  const N=[];
+  for(let m=0;m<12;m++){
+    let s=0,n=0;
+    for(let y=1991;y<=2020;y++){ const k=y*12+m; if((cnt.get(k)||0)>=27){ s+=tot.get(k); n++; } }
+    if(n<20) return null;                      // zu wenig Jahre -> keine Normalwerte
+    N.push(s/n);
+  }
+  return N;
+}
+
+// Deutsche Beschriftung der Zeitachse (abhängig vom sichtbaren Zeitraum)
+const tz = {timeZone:"Europe/Berlin"};
+const fTime  = new Intl.DateTimeFormat("de-DE",{...tz,hour:"2-digit",minute:"2-digit"});
+const fDay   = new Intl.DateTimeFormat("de-DE",{...tz,day:"2-digit",month:"2-digit"});
+const fDayWd = new Intl.DateTimeFormat("de-DE",{...tz,weekday:"short",day:"2-digit",month:"2-digit"});
+const fDate  = new Intl.DateTimeFormat("de-DE",{...tz,day:"2-digit",month:"2-digit",year:"numeric"});
+const fDT    = new Intl.DateTimeFormat("de-DE",{...tz,day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
+const fMonOnly = new Intl.DateTimeFormat("de-DE",{...tz,month:"short"});
+const fMonLong = new Intl.DateTimeFormat("de-DE",{timeZone:"UTC",month:"long",year:"numeric"});
+const fMon   =new Intl.DateTimeFormat("de-DE",{...tz,month:"short",year:"2-digit"});
+function xTick(value, i, ticks){
+  const t = ticks[i].value, span = ticks[ticks.length-1].value - ticks[0].value;
+  if(yearSel||cmp) return fMonOnly.format(t);             // Kalenderjahr/Vergleich: nur Monatsnamen
+  if(span <= 3*864e5)  return `${fDay.format(t)} ${fTime.format(t)}`;
+  if(span <= 10*864e5) return fDayWd.format(t);
+  if(span <= 120*864e5) return fDay.format(t);
+  if(span > 5*365*864e5) return new Intl.DateTimeFormat("de-DE",{...tz,year:"numeric"}).format(t);
+  return fMon.format(t);
+}
+
+function css(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+
+function summary(){
+  const lastP = all[all.length-1];
+  $("cur").innerHTML = `${fm(nnM(lastP.v))} <small>m ü. NN</small>`;
+  $("curNN").textContent = `Pegel ${lastP.v} cm · Stand ${fmtDT.format(lastP.t)}`;
+  $("depth").innerHTML = `${fm(tiefeM(lastP.v))} <small>m</small>`;
+  const sc = sollCmAt(lastP.t);
+  if(sc!==null){
+    const d = Math.round((lastP.v - sc)*10)/10;                       // über Soll = blau, unter Soll = rot
+    $("soll").className = "value " + (d>0 ? "over" : d<0 ? "under" : "");
+    $("soll").innerHTML = `${d>0?"+":d<0?"−":""}${fm(Math.abs(d),0)} <small>cm</small>`;
+    $("sollHint").textContent = `Soll jetzt ${fm(nnM(sc))} m ü. NN · ${d>0?"über":d<0?"unter":"genau auf"} Soll`;
+  }
+  const at = ms => { const target=lastP.t-ms; let best=null;
+    for(let i=all.length-1;i>=0;i--){ if(all[i].t<=target){best=all[i];break;} } return best; };
+  const p24 = at(864e5), p1 = at(36e5);
+  if(p24){ const d=lastP.v-p24.v; $("d24").innerHTML=`${d>0?'▲ +':d<0?'▼ −':'● '}${Math.abs(d)} <small>cm</small>`; }
+  if(p1){ const d=lastP.v-p1.v; $("d1").textContent=`letzte Stunde: ${d>0?'+':d<0?'−':''}${Math.abs(d)} cm`; }
+  // Wetterzeile: Regen 7/30 Tage, Verdunstung und Bilanz der letzten 30 Tage (1 mm Wasserspalte = 0,1 cm Wasserstand)
+  if(rain.length){                                  // Summen bis zum letzten DWD-Tag
+    const L = rain[rain.length-1].t, sum = d => rain.filter(p=>p.t > L-d*864e5).reduce((a,p)=>a+p.v,0);
+    $("rain7").textContent = `${fm(sum(7),1)} mm`; $("rain30").textContent = `${fm(sum(30),1)} mm`;
+  } else { $("rain7").textContent = "–"; $("rain30").textContent = "–"; }
+  if(rain.length && evap.length){
+    const L = Math.min(rain[rain.length-1].t, evap[evap.length-1].t); let P=0, E=0, n=0;
+    for(let t=L; t>L-30*864e5; t-=864e5){ const r=rainMap.get(t), e=evapMap.get(t); if(r!==undefined && e!==undefined){ P+=r; E+=e; n++; } }
+    const d=(P-E)/10;
+    $("evap30").textContent = `${fm(E,0)} mm`;
+    $("wb30").className = d>=0 ? "gain" : "loss";
+    $("wb30").textContent = `${d>=0?"+":"−"}${fm(Math.abs(d),1)} cm`;
+    $("wbHint").textContent = `${d>=0?"mehr Regen als Verdunstung":"mehr Verdunstung als Regen"} (${n} Tage bis ${fmtD.format(L)})`;
+  } else { $("evap30").textContent = "–"; $("wb30").textContent = "–"; $("wbHint").textContent = ""; }
+  $("count").textContent = all.length.toLocaleString("de-DE");
+  $("span").textContent = `(${fmtD.format(all[0].t)} – ${fmtD.format(lastP.t)})`;
+  $("sub").textContent = `Quelle: NLWKN Pegelonline · Messintervall 15 min · Stand ${fmtDT.format(lastP.t)}`;
+}
+
+$("ranges").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b || b.dataset.d===undefined) return;   // "Jahre vergleichen" hat einen eigenen Handler
+  setCmp(false);
+  rangeDays=+b.dataset.d; yearSel=null;
+  $("yearSel").value=""; $("yearSel").classList.remove("active");
+  document.querySelectorAll("#ranges button").forEach(x=>x.classList.toggle("active",x===b));
+  render();
+});
+
+// Jahresvergleich ein-/ausschalten (Zustand der Oberfläche)
+function setCmp(on){
+  cmp = on;
+  $("cmpBox").style.display = on ? "" : "none";
+  $("cmpBtn").classList.toggle("active", on);
+  if(on){
+    yearSel = null; rangeDays = null;
+    $("yearSel").value=""; $("yearSel").classList.remove("active");
+    document.querySelectorAll("#ranges button[data-d]").forEach(x=>x.classList.remove("active"));
+  }
+}
+// Jahre-Auswahl: Schaltflächen für alle Jahre mit Daten; Auswahl wird im Browser gemerkt
+function initCompare(){
+  const box=$("cmpBox"), btn=$("cmpBtn");
+  const y0=1998, y1=new Date(all[all.length-1].t).getUTCFullYear(), info=[];
+  for(let y=y1;y>=y0;y--){ const n=cmpDaily(y).length; if(n>0) info.push({y,n}); }
+  if(!info.length){ btn.style.display="none"; return; }
+  try{ JSON.parse(localStorage.getItem("cmpSel")||"[]").forEach(y=>{ if(info.some(i=>i.y===y)) cmpSel.add(y); }); }catch(e){}
+  if(!cmpSel.size){                                  // Voreinstellung: die drei jüngsten vollständigen Jahre
+    info.filter(i=>i.n>=360).slice(0,3).forEach(i=>cmpSel.add(i.y));
+    if(!cmpSel.size) cmpSel.add(info[0].y);
+  }
+  const save=()=>{ try{ localStorage.setItem("cmpSel",JSON.stringify([...cmpSel])); }catch(e){} };
+  for(const {y,n} of info){
+    const b=document.createElement("button");
+    b.style.setProperty("--c",cmpColor(y)); b.dataset.y=y;
+    b.innerHTML=`<span class="dot"></span>${y}${n<360?` <small>(${n} Tage)</small>`:""}`;
+    b.title = n<360 ? `${y}: nur ${n} Tage mit Daten` : `${y}: vollständig`;
+    b.classList.toggle("on", cmpSel.has(y));
+    b.addEventListener("click",()=>{
+      cmpSel.has(y) ? cmpSel.delete(y) : cmpSel.add(y);
+      b.classList.toggle("on", cmpSel.has(y)); save(); render();
+    });
+    box.appendChild(b);
+  }
+  btn.addEventListener("click",()=>{ setCmp(!cmp); if(!cmp){ rangeDays=30; document.querySelector('#ranges button[data-d="30"]').classList.add("active"); } render(); });
+}
+
+// Kalenderjahr-Auswahl: alle Jahre vom ersten Datenpunkt bis heute
+function yearNote(y, slice){
+  const parts=[];
+  if(slice.length){
+    const first=Math.min(...slice.map(p=>p.t)), last=Math.max(...slice.map(p=>p.t));
+    parts.push(`Messdaten vorhanden: ${fmtD.format(first)} – ${fmtD.format(last)}`);
+  } else parts.push(`Für ${y} liegen keine Messdaten im Archiv vor.`);
+  if(Date.UTC(y,11,31) < SOLL_AB) parts.push("Sollwert: heutiger Plan (gilt seit 04/2009), rückwirkend angewendet.");
+  return parts.join(" · ");
+}
+// Bootsklassen-Auswahl (Mehrfachauswahl, wird im Browser gemerkt)
+// Schalter "Niederschlag" (Zustand wird im Browser gemerkt)
+function initRain(){
+  const btn=$("rainBtn");
+  if(!rain.length){ btn.style.display="none"; return; }
+  try{ if(localStorage.getItem("rainOn")==="0") rainOn=false; }catch(e){}
+  btn.classList.toggle("on",rainOn);
+  btn.addEventListener("click",()=>{
+    rainOn=!rainOn; btn.classList.toggle("on",rainOn);
+    try{ localStorage.setItem("rainOn",rainOn?"1":"0"); }catch(e){}
+    render();
+  });
+}
+// Schalter "Verdunstung" (Balken und Bilanz im Regenfeld; Zustand wird im Browser gemerkt)
+function initEvap(){
+  const btn=$("evapBtn");
+  if(!evap.length){ btn.style.display="none"; return; }
+  try{ if(localStorage.getItem("evapOn")==="0") evapOn=false; }catch(e){}
+  btn.classList.toggle("on",evapOn);
+  btn.addEventListener("click",()=>{
+    evapOn=!evapOn; btn.classList.toggle("on",evapOn);
+    try{ localStorage.setItem("evapOn",evapOn?"1":"0"); }catch(e){}
+    render();
+  });
+}
+// Schalter "Regatten" (Zustand wird im Browser gemerkt)
+function initRegatten(){
+  const btn=$("regBtn");
+  if(!regatten.length){ btn.style.display="none"; return; }
+  try{ if(localStorage.getItem("regattaOn")==="0") regattaOn=false; }catch(e){}
+  btn.classList.toggle("on",regattaOn);
+  btn.addEventListener("click",()=>{
+    regattaOn=!regattaOn; btn.classList.toggle("on",regattaOn);
+    try{ localStorage.setItem("regattaOn",regattaOn?"1":"0"); }catch(e){}
+    render();
+  });
+}
+// Ausklappmenü "Tiefgang": öffnet/schließt per Klick, schließt auch bei Klick daneben und mit Esc
+function initBoatMenu(){
+  const btn=$("boatBtn"), panel=$("boats");
+  const close=()=>{ panel.hidden=true; btn.setAttribute("aria-expanded","false"); };
+  btn.addEventListener("click",e=>{
+    e.stopPropagation(); panel.hidden=!panel.hidden; btn.setAttribute("aria-expanded",String(!panel.hidden));
+    if(!panel.hidden){                              // Panel nach links schieben, falls es rechts aus dem Fenster ragt
+      panel.style.left="0px";
+      const over = panel.getBoundingClientRect().right - (document.documentElement.clientWidth - 12);
+      if(over>0) panel.style.left = (-over)+"px";
+    }
+  });
+  document.addEventListener("click",e=>{ if(!panel.hidden && !$("boatDd").contains(e.target)) close(); });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape") close(); });
+}
+function updateBoatBtn(){
+  $("boatCount").textContent = boatSel.size ? `(${boatSel.size}) ` : "";
+  $("boatBtn").classList.toggle("has", boatSel.size>0);
+}
+function initBoats(){
+  const box=$("boats");
+  if(!boats.length){ $("boatDd").style.display="none"; return; }
+  initBoatMenu();
+  try{ (JSON.parse(localStorage.getItem("boatSel")||"[]")).forEach(n=>boatSel.add(n)); }catch(e){}
+  for(const b of boats){
+    const btn=document.createElement("button");
+    btn.style.setProperty("--c",b.color);
+    btn.dataset.name=b.name;
+    const has=b.tiefgang_m!=null;
+    btn.innerHTML=`<span class="dot"></span>${b.name}${has?` ${fm(b.tiefgang_m)} m${b.geprueft?"":"*"}`:" (Wert fehlt)"}`;
+    btn.title=b.quelle||"";
+    btn.disabled=!has;
+    btn.classList.toggle("on", has && boatSel.has(b.name));
+    if(!has) boatSel.delete(b.name);
+    btn.addEventListener("click",()=>{
+      boatSel.has(b.name) ? boatSel.delete(b.name) : boatSel.add(b.name);
+      btn.classList.toggle("on", boatSel.has(b.name));
+      try{ localStorage.setItem("boatSel",JSON.stringify([...boatSel])); }catch(e){}
+      render();
+    });
+    box.appendChild(btn);
+  }
+}
+// Luft unter Schwert/Ruder bei aktuellem Wasserstand am Pegel
+function updateBoatNote(){
+  updateBoatBtn();
+  const el=$("boatNote"), sel=boats.filter(b=>boatSel.has(b.name) && b.tiefgang_m!=null);
+  if(!sel.length){ el.textContent=""; return; }
+  const depth=tiefeM(all[all.length-1].v);
+  const items=sel.map(b=>{ const m=depth-b.tiefgang_m;
+    return `<span class="${m>=0?"ok":"bad"}">${b.name} ${m>=0?"+":"−"}${fm(Math.abs(m))} m</span>`; });
+  const unsure = sel.some(b=>!b.geprueft) ? " · * = ungeprüfter Richtwert" : "";
+  el.innerHTML=`Aktuell ${fm(depth)} m Wassertiefe am Pegel – Luft unter Schwert/Ruder: ${items.join(" · ")}${unsure}. Die Tiefe am Pegel ist nicht überall im Revier gleich.`;
+}
+function initYears(){
+  const sel=$("yearSel");
+  const firstT = Math.min(all[0].t, hist.length?hist[0].t:Infinity), lastT = all[all.length-1].t;
+  const y0=new Date(firstT).getUTCFullYear(), y1=new Date(lastT).getUTCFullYear();
+  const has=new Set(all.concat(hist).map(p=>new Date(p.t+36e5).getUTCFullYear()));
+  for(let y=y1;y>=y0;y--){
+    const o=document.createElement("option"); o.value=y; o.textContent = has.has(y) ? String(y) : `${y} (keine Daten)`;
+    sel.appendChild(o);
+  }
+  sel.addEventListener("change",()=>{
+    if(!sel.value){ return; }
+    setCmp(false);
+    yearSel=+sel.value; rangeDays=null;
+    document.querySelectorAll("#ranges button").forEach(x=>x.classList.remove("active"));
+    sel.classList.add("active");
+    render();
+  });
+}
+
+attachCrosshair($("chart"),()=>chart);
+attachCrosshair($("rainChart"),()=>rainChart);
+
+/* ---- Regatta-Vergleich: wiederkehrende Regatten (>= 3 Ausgaben) über die Jahre ----
+   Linien: Tagesmittel des Pegels von 7 Tagen vor bis 7 Tage nach dem ersten Regattatag. Tabelle/Balken: Mittel der Regattatage. */
+const rcNorm = n => n.split("/")[0].toLowerCase().replace(/dümmer/g," ").replace(/[^a-zäöüß0-9]+/g," ").trim();
+const rcD12 = iso => { const [y,m,d]=iso.split("-").map(Number); return Date.UTC(y,m-1,d,12); };
+let rcLvl = null, rcSeriesList = [], rcB = null;
+function rcLevels(){
+  if(rcLvl) return rcLvl;
+  rcLvl = new Map(hist.map(p=>[p.t,p.v]));
+  for(const p of bucket(all,864e5)) if(!rcLvl.has(p.x)) rcLvl.set(p.x,p.y);        // Archiv: Tagesmittel (12:00 UTC wie die Jahrbuchwerte)
+  return rcLvl;
+}
+// Feste Regatta-Serien (Namensvarianten und Nachfolger zusammengefasst):
+//  · Dümmer Finale (Oktober) – ab 2025 löst der Goldene Pfingstochse (GPO, Pfingsten) es ab
+//  · Dümmer Pre-/Après-Finale – ab 2025 GPO Après; gleiche Termine wie in seglerinfo.de
+const RC_DEFS = [
+  {key:"haubentaucher", name:"Haubentaucher", test:n=>/haubentaucher/i.test(n)},
+  {key:"glasenuhr", name:"Glasenuhr", test:n=>/glasen+uhr/i.test(n)},
+  {key:"finale", name:"Dümmer Finale / GPO", test:n=>!/(^|[^a-z])pre([^a-z]|$)|apres|après/i.test(n) && /finale|pfingst\s*ochse/i.test(n)},
+  {key:"prefinale", name:"Dümmer Pre-/Après-Finale / GPO Après", test:n=>/pre[\s-]*finale|apres|après/i.test(n)}];
+function rcBuildSeries(){
+  return RC_DEFS.map(d=>{
+    // gleicher Starttag = dieselbe Veranstaltung (z. B. "Glasenuhr" + "Glasenuhr / LJM"): ein Eintrag
+    const eds=[]; for(const e of regatten) if(d.test(e.name)){ const x=eds.find(z=>z.start===e.start); if(x) {} else eds.push({...e}); }
+    return {key:d.key,name:d.name,eds:eds.sort((a,b)=>a.start<b.start?-1:1)};
+  }).filter(s=>s.eds.length>=2);
+}
+function rcStats(e){
+  const t0=rcD12(e.start), t1=rcD12(e.end), L=rcLevels(), vals=[], sol=[];
+  for(let t=t0;t<=t1;t+=864e5){ const v=L.get(t); if(v!==undefined){ vals.push(v); sol.push(sollCmAt(t)); } }
+  const o={e, y:new Date(t0).getUTCFullYear(), t0, t1, n:Math.round((t1-t0)/864e5)+1, have:vals.length};
+  if(vals.length){
+    o.mean=vals.reduce((a,b)=>a+b,0)/vals.length; o.min=Math.min(...vals); o.max=Math.max(...vals);
+    o.dev=o.mean - sol.reduce((a,b)=>a+b,0)/sol.length;
+    const prev=L.get(t0-7*864e5), cur=L.get(t0); o.d7 = (prev!==undefined && cur!==undefined) ? cur-prev : null;
+  }
+  let b=0, ok=rainMap.size>0 && evapMap.size>0;
+  for(let k=1;k<=7 && ok;k++){ const t=t0-k*864e5, r=rainMap.get(t), v=evapMap.get(t); if(r===undefined||v===undefined) ok=false; else b+=r-v; }
+  o.bil = ok ? b : null;
+  return o;
+}
+const rcSgn = (v,d=0) => (v>0?"+":v<0?"−":"") + fm(Math.abs(v),d);
+const rcCol = (i,n) => `hsl(210,${55+25*i/Math.max(1,n-1)}%,${72-40*i/Math.max(1,n-1)}%)`;      // alt = hell, neu = dunkel
+
+function rcRender(){
+  const s = rcSeriesList.find(x=>x.key===$("rcSel").value) || rcSeriesList[0]; if(!s) return;
+  try{ localStorage.setItem("rcKey",s.key); }catch(e){}
+  const nSel = +$("rcN").value;
+  let eds = s.eds.map(rcStats); if(nSel) eds = eds.slice(-nSel);
+  // Jahre mit zwei Ausgaben (z. B. Glasenuhr 2017) bekommen das Datum in der Beschriftung
+  eds.forEach(o=>{ o.lab = eds.filter(x=>x.y===o.y).length>1 ? `${o.y} (${fDate.format(o.t0).slice(0,5)})` : String(o.y); });
+  const withData = eds.filter(o=>o.have>0);
+  // Zusammenfassung
+  const sum = $("rcSum");
+  if(withData.length){
+    const mean = withData.reduce((a,o)=>a+o.mean,0)/withData.length;
+    const hi = withData.reduce((a,o)=>o.mean>a.mean?o:a), lo = withData.reduce((a,o)=>o.mean<a.mean?o:a);
+    const cur = all.length ? all[all.length-1].v : null;
+    sum.innerHTML = `<b>${s.name}</b> – ${eds.length} Ausgaben, ${withData.length} mit Pegeldaten · Mittel der Regattatage: <b>${fm(nnM(mean))} m ü. NN</b> · Wassertiefe <b>${fm(tiefeM(mean))} m</b><br>`
+      + `Höchster Stand ${hi.y}: ${fm(nnM(hi.mean))} m ü. NN (Tiefe ${fm(tiefeM(hi.mean))} m) · niedrigster ${lo.y}: ${fm(nnM(lo.mean))} m ü. NN (Tiefe ${fm(tiefeM(lo.mean))} m)`
+      + (cur!==null ? `<br><small>Aktueller Pegel ${fm(nnM(cur))} m ü. NN (Tiefe ${fm(tiefeM(cur))} m) = ${rcSgn(cur-mean)} cm gegenüber diesem Mittel.</small>` : "");
+  } else sum.textContent = `${s.name}: keine Pegeldaten für diese Ausgaben.`;
+  // Jahresvergleich: Mittel der Regattatage je Jahr als Balken oder Linie, dazu das Mittel aller Jahre
+  const asLine = $("rcView").value==="line";
+  const labs = withData.map(o=>o.lab), means = withData.map(o=>o.mean), mAll = means.length ? means.reduce((a,b)=>a+b,0)/means.length : 0;
+  const bl = means.length ? Math.min(...means) : 160, bh = means.length ? Math.max(...means) : 240, bp = Math.max(4,(bh-bl)*.25);
+  const yMin = Math.floor(bl-bp), yMax = Math.ceil(bh+bp);
+  if(rcB) rcB.destroy();
+  const mainDs = asLine
+    ? {type:"line",label:"Mittel der Regattatage",data:means,borderColor:css("--accent"),backgroundColor:css("--accent"),borderWidth:2.2,pointRadius:4,pointHoverRadius:6,tension:.15}
+    : {type:"bar",label:"Mittel der Regattatage",data:means,backgroundColor:"rgba(27,108,168,.75)",borderColor:css("--accent"),borderWidth:1,barPercentage:.75};
+  rcB = new Chart($("rcB"),{data:{labels:labs,datasets:[mainDs,
+      {type:"line",label:`Mittel aller Jahre (${fm(nnM(mAll))} m ü. NN)`,data:means.map(()=>mAll),borderColor:css("--soll"),borderDash:[5,4],borderWidth:1.4,pointRadius:0,fill:false}]},
+    options:{responsive:true,maintainAspectRatio:false,animation:false,
+      scales:{x:{grid:{display:false},ticks:{color:css("--muted"),maxRotation:60}},
+        y:{position:"left",min:yMin,max:yMax,title:{display:true,text:"Wasserstand (m ü. NN)",color:css("--muted")},grid:{color:css("--line")},ticks:{color:css("--muted"),includeBounds:false,callback:v=>fm(nnM(v),2)}},
+        y2:{position:"right",min:yMin,max:yMax,title:{display:true,text:"Wassertiefe (m)",color:css("--muted")},grid:{drawOnChartArea:false},ticks:{color:css("--muted"),includeBounds:false,callback:v=>fm(tiefeM(v),2)}}},
+      plugins:{legend:{display:true,position:"bottom",labels:{color:css("--text"),boxWidth:14,font:{size:11}}},
+        tooltip:{callbacks:{label:it=>{ const o=withData[it.dataIndex];
+          return it.datasetIndex===0 ? [`${fm(nnM(it.raw))} m ü. NN · Wassertiefe ${fm(tiefeM(it.raw))} m`, `Tageswerte ${fm(nnM(o.min))}–${fm(nnM(o.max))} m ü. NN`]
+                                     : `Mittel aller Jahre: ${fm(nnM(it.raw))} m ü. NN · Tiefe ${fm(tiefeM(it.raw))} m`; }}}}}});
+  // Tabelle (neueste zuerst)
+  const tMin = withData.length ? Math.min(...withData.map(o=>o.mean)) : 0, tMax = withData.length ? Math.max(...withData.map(o=>o.mean)) : 1;
+  const shade = v => `rgba(27,108,168,${(.07 + .33*((v-tMin)/Math.max(1e-6,tMax-tMin))).toFixed(2)})`;
+  const rows = eds.slice().reverse().map(o=>{
+    const dt = o.n>1 ? `${fDate.format(o.t0).slice(0,5)}–${fDate.format(o.t1)}` : fDate.format(o.t0);
+    if(!o.have) return `<tr class="rcno"><td>${o.y}</td><td>${dt}</td><td colspan="5">keine Pegeldaten${o.t0>Date.now()?" (noch nicht stattgefunden)":""}</td></tr>`;
+    const dv = o.dev>=0?"pos":"neg";
+    return `<tr class="rcrow" data-y="${o.y}" title="Jahresansicht ${o.y} öffnen"><td><b>${o.y}</b></td><td>${dt}</td><td>${fm(nnM(o.mean))}</td><td style="background:${shade(o.mean)}"><b>${fm(tiefeM(o.mean))}</b></td>`
+      + `<td class="${dv}">${rcSgn(o.dev)}</td><td>${o.d7===null?"–":rcSgn(o.d7)}</td><td>${o.bil===null?"–":rcSgn(o.bil)}</td></tr>`;
+  }).join("");
+  const avg = f => { const v=withData.map(f).filter(x=>x!==null&&x!==undefined); return v.length? v.reduce((a,b)=>a+b,0)/v.length : null; };
+  const foot = withData.length ? `<tr><td>Ø</td><td></td><td>${fm(nnM(avg(o=>o.mean)))}</td><td>${fm(tiefeM(avg(o=>o.mean)))}</td><td>${rcSgn(avg(o=>o.dev))}</td><td>${avg(o=>o.d7)===null?"–":rcSgn(avg(o=>o.d7))}</td><td>${avg(o=>o.bil)===null?"–":rcSgn(avg(o=>o.bil))}</td></tr>` : "";
+  $("rcT").innerHTML = `<thead><tr><th>Jahr</th><th>Termin</th><th>Wasserstand Ø<br>(m ü. NN)</th><th>Wassertiefe Ø<br>(m)</th><th>zum Soll<br>(cm)</th><th>Pegel in den 7 Tagen<br>davor (cm)</th><th>Regen − Verdunstung<br>7 Tage davor (mm)</th></tr></thead><tbody>${rows}</tbody><tfoot>${foot}</tfoot>`;
+  $("rcT").querySelectorAll("tr.rcrow").forEach(tr=>tr.addEventListener("click",()=>{
+    const ys=$("yearSel"); ys.value=tr.dataset.y; ys.dispatchEvent(new Event("change")); window.scrollTo({top:0,behavior:"smooth"});
+  }));
+}
+function initRegCmp(){
+  if(!regatten.length || !hist.length) return;
+  rcSeriesList = rcBuildSeries(); if(!rcSeriesList.length) return;
+  const sel=$("rcSel"); sel.innerHTML = rcSeriesList.map(s=>`<option value="${s.key}">${s.name} (${s.eds.length}×)</option>`).join("");
+  let k0=null, n0=null; try{ k0=localStorage.getItem("rcKey"); n0=localStorage.getItem("rcNn"); }catch(e){}
+  const hb = rcSeriesList.find(s=>s.key==="haubentaucher");
+  sel.value = (rcSeriesList.some(s=>s.key===k0) ? k0 : (hb||rcSeriesList[0]).key);
+  if(n0!==null) $("rcN").value = n0;
+  let v0=null; try{ v0=localStorage.getItem("rcView"); }catch(e){}
+  if(v0==="bar"||v0==="line") $("rcView").value=v0;
+  $("rcView").addEventListener("change",()=>{ try{ localStorage.setItem("rcView",$("rcView").value); }catch(e){} rcRender(); });
+  sel.addEventListener("change",rcRender);
+  $("rcN").addEventListener("change",()=>{ try{ localStorage.setItem("rcNn",$("rcN").value); }catch(e){} rcRender(); });
+  $("rcCard").style.display = "";
+  rcRender();
+}
+
+const NARROW = innerWidth < 700;
+Chart.defaults.font.size = NARROW ? 11 : 13; Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
+load().then(()=>{initYears();initCompare();initRain();initEvap();initRegatten();initBoats();summary();render();initRegCmp();}).catch(e=>{
+  $("sub").innerHTML = `<span class="err">Fehler: ${e.message}</span>`;
+});
+</script>
+</body>
+</html>

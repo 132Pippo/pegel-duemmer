@@ -1,0 +1,68 @@
+name: Daten aktualisieren und Seite veröffentlichen
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"      # alle 3 Stunden (UTC); die API liefert 30 Tage, das Archiv bleibt lückenlos
+  workflow_dispatch:             # von Hand startbar: Reiter "Actions" > Workflow wählen > "Run workflow"
+  push:
+    branches: [main]
+    paths: ["index.html", ".github/workflows/**"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Neue Messwerte holen
+        continue-on-error: true      # fällt eine Quelle aus, wird die Seite trotzdem mit dem letzten Stand veröffentlicht
+        env:
+          NLWKN_KEY: ${{ secrets.NLWKN_KEY }}
+        run: python fetch.py
+
+      - name: Archiv im Repository speichern
+        run: |
+          git config user.name "pegel-bot"
+          git config user.email "pegel-bot@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Keine neuen Daten."
+          else
+            git commit -m "Daten aktualisiert"
+            git pull --rebase
+            git push
+          fi
+
+      - name: Seite zusammenstellen
+        run: |
+          mkdir _site
+          cp index.html _site/
+          cp -r data _site/data
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,9 @@
+[
+  {"name": "Opti",     "tiefgang_m": 0.75, "geprueft": true, "quelle": "Angabe des Nutzers (Schwert/Ruder unten)"},
+  {"name": "Europe",   "tiefgang_m": 1.00, "geprueft": true, "quelle": "Angabe des Nutzers (Schwert/Ruder unten)"},
+  {"name": "OK-Jolle", "tiefgang_m": 1.00, "geprueft": true, "quelle": "Angabe des Nutzers (Schwert/Ruder unten)"},
+  {"name": "O-Jolle",  "tiefgang_m": 0.95, "geprueft": true, "quelle": "Angabe des Nutzers (Schwert/Ruder unten)"},
+  {"name": "Finn",     "tiefgang_m": 0.85, "geprueft": true, "quelle": "Angabe des Nutzers (Schwert/Ruder unten)"},
+  {"name": "Pirat",    "tiefgang_m": 1.10, "geprueft": true, "quelle": "Angabe des Nutzers (Schwert/Ruder unten)"},
+  {"name": "P-Boot",   "tiefgang_m": 1.15, "geprueft": true, "quelle": "Angabe des Nutzers (Schwert/Ruder unten)"}
+]

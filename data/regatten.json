@@ -1,0 +1,3395 @@
+{
+ "quelle": "seglerinfo.de – Termine, Meldeadressen, Ergebnisse (Veranstalter N.062 SVH), abgerufen am 25.11.2026 für 1996–2026",
+ "regatten": [
+  {
+   "name": "Haubentaucher",
+   "start": "2006-05-27",
+   "end": "2006-05-28",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Jugendmeisterschaft",
+   "start": "2006-07-29",
+   "end": "2006-08-04",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Traditional",
+   "start": "2006-08-26",
+   "end": "2006-08-27",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr",
+   "start": "2006-09-09",
+   "end": "2006-09-10",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2007-05-05",
+   "end": "2007-05-06",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.29,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.21,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Team-Race",
+   "start": "2007-06-07",
+   "end": "2007-06-08",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti C",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucherregatta",
+   "start": "2007-06-09",
+   "end": "2007-06-10",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2007-07-18",
+   "end": "2007-07-22",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Korsar",
+     "status": "RR",
+     "faktor": 1.4,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Jüngstenmeisterschaft",
+   "start": "2007-07-27",
+   "end": "2007-08-03",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Teeny",
+     "status": "RR",
+     "faktor": 1.4,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Traditional",
+   "start": "2007-08-25",
+   "end": "2007-08-26",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Yardstick/IMS/ORC",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr",
+   "start": "2007-09-08",
+   "end": "2007-09-09",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Korsar",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "470er",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmerdreieckswettfahrt",
+   "start": "2007-10-20",
+   "end": "2007-10-20",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Yardstick/IMS/ORC",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2008-04-19",
+   "end": "2008-04-20",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.24,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "EM WM Ausscheidung",
+   "start": "2008-05-03",
+   "end": "2008-05-04",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Pfingstregatta",
+   "start": "2008-05-10",
+   "end": "2008-05-12",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher Regatta",
+   "start": "2008-05-24",
+   "end": "2008-05-25",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Euro Masters Series",
+   "start": "2008-07-11",
+   "end": "2008-07-13",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.17,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.17,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Jugendmeisterschaft",
+   "start": "2008-07-21",
+   "end": "2008-07-26",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.25,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Traditional",
+   "start": "2008-08-30",
+   "end": "2008-08-31",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Yardstick/IMS/ORC",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr/LJM-N",
+   "start": "2008-09-06",
+   "end": "2008-09-07",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer-Finale",
+   "start": "2008-10-03",
+   "end": "2008-10-05",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.35,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2009-05-01",
+   "end": "2009-05-03",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.23,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Pfingstregatta",
+   "start": "2009-05-30",
+   "end": "2009-06-01",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.05,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2009-06-13",
+   "end": "2009-06-14",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Vorregatta",
+   "start": "2009-08-01",
+   "end": "2009-08-02",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Deutsche Meisterschaft",
+   "start": "2009-08-03",
+   "end": "2009-08-07",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.6,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer",
+   "start": "2009-09-05",
+   "end": "2009-09-06",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "470er",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Korsar",
+     "status": "RR",
+     "faktor": 1.05,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer / LJM-N",
+   "start": "2009-09-05",
+   "end": "2009-09-06",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer-Finale",
+   "start": "2009-10-03",
+   "end": "2009-10-04",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.35,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Bellini-Cup",
+   "start": "2009-10-24",
+   "end": "2009-10-25",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2010-05-01",
+   "end": "2010-05-02",
+   "revier": "DÃ¼mmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel / LM-N",
+   "start": "2010-05-01",
+   "end": "2010-05-02",
+   "revier": "DÃ¼mmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.3,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2010-06-05",
+   "end": "2010-06-06",
+   "revier": "DÃ¼mmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti A",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Opti B",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2010-08-16",
+   "end": "2010-08-19",
+   "revier": "DÃ¼mmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.6,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "DÃ¼mmer Traditional",
+   "start": "2010-08-28",
+   "end": "2010-08-29",
+   "revier": "DÃ¼mmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Yardstick/IMS/ORC",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr",
+   "start": "2010-09-04",
+   "end": "2010-09-05",
+   "revier": "DÃ¼mmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "470er",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Korsar",
+     "status": "RR",
+     "faktor": 1.05,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr DÃ¼mmer / LJM-N",
+   "start": "2010-09-04",
+   "end": "2010-09-05",
+   "revier": "DÃ¼mmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "DÃ¼mmer Finale",
+   "start": "2010-10-02",
+   "end": "2010-10-03",
+   "revier": "DÃ¼mmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.35,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2011-04-30",
+   "end": "2011-05-01",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.19,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Minirüssel",
+   "start": "2011-05-21",
+   "end": "2011-05-22",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "29er",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2011-06-04",
+   "end": "2011-06-05",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher / Far East",
+   "start": "2011-06-04",
+   "end": "2011-06-05",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Traditional",
+   "start": "2011-08-27",
+   "end": "2011-08-28",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Yardstick/IMS/ORC",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer",
+   "start": "2011-09-03",
+   "end": "2011-09-04",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "470er",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Korsar",
+     "status": "RR",
+     "faktor": 1.05,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer /LJM-N",
+   "start": "2011-09-03",
+   "end": "2011-09-04",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2011-09-12",
+   "end": "2011-09-16",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.6,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer-Finale",
+   "start": "2011-10-01",
+   "end": "2011-10-03",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.35,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2012-04-28",
+   "end": "2012-04-29",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.18,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2012-06-09",
+   "end": "2012-06-10",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Traditional",
+   "start": "2012-08-25",
+   "end": "2012-08-26",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr / LJM-N",
+   "start": "2012-09-01",
+   "end": "2012-09-02",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer",
+   "start": "2012-09-01",
+   "end": "2012-09-02",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2012-10-06",
+   "end": "2012-10-07",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Vaurien",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.35,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2013-04-27",
+   "end": "2013-04-28",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.13,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel / Distriktmeisterschaft Nord",
+   "start": "2013-04-27",
+   "end": "2013-04-28",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.25,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.25,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.25,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2013-06-08",
+   "end": "2013-06-09",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2013-08-05",
+   "end": "2013-08-09",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.55,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "LJüM-Niedersachsen",
+   "start": "2013-08-23",
+   "end": "2013-08-25",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Teeny",
+     "status": "RR",
+     "faktor": 1.06,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "LJM-Niedersachsen",
+   "start": "2013-08-24",
+   "end": "2013-08-25",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "29er",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "LJüM-Niedersachsen",
+   "start": "2013-08-24",
+   "end": "2013-08-25",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr",
+   "start": "2013-08-31",
+   "end": "2013-09-01",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Korsar",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2013-10-05",
+   "end": "2013-10-06",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Vaurien",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leuchtturm Cup",
+   "start": "2013-10-19",
+   "end": "2013-10-20",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2014-04-26",
+   "end": "2014-04-27",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2014-06-14",
+   "end": "2014-06-15",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Jugendmeisterschaft",
+   "start": "2014-08-10",
+   "end": "2014-08-15",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Pokalwettfahrten Hüde",
+   "start": "2014-08-16",
+   "end": "2014-08-17",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.25,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.27,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasennuhr Dümmer",
+   "start": "2014-08-30",
+   "end": "2014-08-31",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Korsar",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "420er",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer",
+   "start": "2014-08-30",
+   "end": "2014-08-31",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Pre Finale",
+   "start": "2014-10-03",
+   "end": "2014-10-04",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2014-10-04",
+   "end": "2014-10-05",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.25,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.35,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Vaurien",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leuchtturm Cup",
+   "start": "2014-10-25",
+   "end": "2014-10-26",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2015-05-02",
+   "end": "2015-05-03",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel / LM",
+   "start": "2015-05-02",
+   "end": "2015-05-03",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.16,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2015-06-06",
+   "end": "2015-06-07",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti A",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Jüngstenmeisterschaft",
+   "start": "2015-08-03",
+   "end": "2015-08-07",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Teeny",
+     "status": "RR",
+     "faktor": 1.4,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Hüder Pokalwettfahrten",
+   "start": "2015-08-15",
+   "end": "2015-08-16",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Wellerpokal",
+   "start": "2015-08-15",
+   "end": "2015-08-16",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2015-08-24",
+   "end": "2015-08-27",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.55,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr",
+   "start": "2015-09-05",
+   "end": "2015-09-06",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Korsar",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr / LJM",
+   "start": "2015-09-05",
+   "end": "2015-09-06",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2015-10-03",
+   "end": "2015-10-04",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Vaurien",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale / LM",
+   "start": "2015-10-03",
+   "end": "2015-10-04",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.25,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Bellini Cup",
+   "start": "2015-10-17",
+   "end": "2015-10-18",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2016-04-30",
+   "end": "2016-05-01",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.19,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2016-06-11",
+   "end": "2016-06-12",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Hüder Pokalwettfahrten",
+   "start": "2016-08-13",
+   "end": "2016-08-14",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Wellerpokal / Vorregtta DM",
+   "start": "2016-08-13",
+   "end": "2016-08-14",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Deutsche Meisterschaft",
+   "start": "2016-08-15",
+   "end": "2016-08-19",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.4,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer",
+   "start": "2016-08-27",
+   "end": "2016-08-28",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Korsar",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Pre- Finale",
+   "start": "2016-10-01",
+   "end": "2016-10-02",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2016-10-02",
+   "end": "2016-10-03",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Vaurien",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leuchturm Cupl",
+   "start": "2016-10-22",
+   "end": "2016-10-23",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel (LM)",
+   "start": "2017-04-29",
+   "end": "2017-04-30",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel / LM",
+   "start": "2017-04-29",
+   "end": "2017-04-30",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.14,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Pfingstregatta Dümmer",
+   "start": "2017-06-03",
+   "end": "2017-06-04",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2017-06-10",
+   "end": "2017-06-11",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Hüder Pokalwettfahrten",
+   "start": "2017-08-12",
+   "end": "2017-08-13",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Schwertzugvogel",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Pokalwettfahrten Hüde",
+   "start": "2017-08-12",
+   "end": "2017-08-13",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.25,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer",
+   "start": "2017-08-26",
+   "end": "2017-08-27",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer",
+   "start": "2017-09-02",
+   "end": "2017-09-03",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Vorregatta IDM",
+   "start": "2017-09-02",
+   "end": "2017-09-03",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2017-09-04",
+   "end": "2017-09-08",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.5,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmerfinale",
+   "start": "2017-09-30",
+   "end": "2017-10-01",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Vaurien",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.35,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmerfinale / LM",
+   "start": "2017-09-30",
+   "end": "2017-10-01",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.25,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Apres-Finale",
+   "start": "2017-10-02",
+   "end": "2017-10-03",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2018-04-28",
+   "end": "2018-04-29",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.12,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel (LJM)",
+   "start": "2018-04-28",
+   "end": "2018-04-29",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Euro-Cup",
+   "start": "2018-04-30",
+   "end": "2018-05-04",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.5,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Jugendmeisterschaft",
+   "start": "2018-05-10",
+   "end": "2018-05-13",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2018-06-09",
+   "end": "2018-06-10",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Teeny",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Hüder Pokalwettfahrten",
+   "start": "2018-08-11",
+   "end": "2018-08-12",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Schwertzugvogel",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr",
+   "start": "2018-09-01",
+   "end": "2018-09-02",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Schwertzugvogel",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "420er",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2018-10-06",
+   "end": "2018-10-07",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Vaurien",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2019-05-04",
+   "end": "2019-05-05",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.26,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2019-06-15",
+   "end": "2019-06-16",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Teeny",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Hüder Pokalwettfahrten",
+   "start": "2019-08-10",
+   "end": "2019-08-11",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Schwertzugvogel",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "OK-Jolle",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Landesjugendmeisterschaft N",
+   "start": "2019-08-24",
+   "end": "2019-08-25",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "29er",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Landesjüngstenmeisterschaft N",
+   "start": "2019-08-24",
+   "end": "2019-08-25",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Teeny",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr",
+   "start": "2019-08-31",
+   "end": "2019-09-01",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Flying Junior",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Schwertzugvogel",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "420er",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Pre-Finale",
+   "start": "2019-10-03",
+   "end": "2019-10-04",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmerfinale",
+   "start": "2019-10-05",
+   "end": "2019-10-06",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.25,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.35,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Vaurien",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel / LM",
+   "start": "2020-05-02",
+   "end": "2020-05-03",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.17,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2020-05-20",
+   "end": "2020-05-24",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2020-06-13",
+   "end": "2020-06-14",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Teeny",
+     "bemerkung": "Corona (manuell ergänzt)",
+     "abgesagt": true
+    },
+    {
+     "klasse": "Opti B",
+     "bemerkung": "Corona (manuell ergänzt)",
+     "abgesagt": true
+    },
+    {
+     "klasse": "Europe",
+     "bemerkung": "Corona (manuell ergänzt)",
+     "abgesagt": true
+    },
+    {
+     "klasse": "Opti A",
+     "bemerkung": "Corona (manuell ergänzt)",
+     "abgesagt": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2020-07-18",
+   "end": "2020-07-19",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer",
+   "start": "2020-08-29",
+   "end": "2020-08-30",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "OK-Jolle",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "420er",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Europe",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2020-09-03",
+   "end": "2020-09-06",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "OK-Jolle",
+     "status": "RR",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Deutsche Meisterschaft / Dümmer Finale",
+   "start": "2020-10-01",
+   "end": "2020-10-04",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.4,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2021-05-01",
+   "end": "2021-05-02",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel / LM",
+   "start": "2021-05-01",
+   "end": "2021-05-02",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.17,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2021-06-12",
+   "end": "2021-06-13",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti A",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Jugendmeisterschaft",
+   "start": "2021-09-30",
+   "end": "2021-10-03",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2021-10-02",
+   "end": "2021-10-03",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2022-04-30",
+   "end": "2022-05-01",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "ILCA 7",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.14,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 4",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2022-05-24",
+   "end": "2022-05-29",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2022-06-11",
+   "end": "2022-06-12",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Teeny",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr",
+   "start": "2022-08-20",
+   "end": "2022-08-21",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "OK-Jolle",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr / LJM",
+   "start": "2022-08-20",
+   "end": "2022-08-21",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2022-10-01",
+   "end": "2022-10-02",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Vaurien",
+     "status": "RR",
+     "faktor": 1.35,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2022-10-01",
+   "end": "2022-10-03",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.35,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Apres Finale",
+   "start": "2022-10-02",
+   "end": "2022-10-03",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2023-04-29",
+   "end": "2023-04-30",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.18,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel / Distrikmeisterschaft",
+   "start": "2023-04-29",
+   "end": "2023-04-30",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "start": "2023-06-10",
+   "end": "2023-06-11",
+   "name": "Haubentaucher",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Klassen nicht erfasst",
+     "bemerkung": "manuell ergänzt (fehlt auf seglerinfo.de)"
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Jugendmeisterschaft",
+   "start": "2023-07-29",
+   "end": "2023-08-04",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti A",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer",
+   "start": "2023-09-02",
+   "end": "2023-09-03",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.3,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Flying Junior",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "OK-Jolle",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2023-09-30",
+   "end": "2023-10-01",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Apres Finale",
+   "start": "2023-10-02",
+   "end": "2023-10-03",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2024-04-27",
+   "end": "2024-04-28",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "Absage mangels Teilnehmer",
+     "abgesagt": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "Absage mangels Teilnehmer",
+     "abgesagt": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "Absage mangels Teilnehmer",
+     "abgesagt": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel / LM",
+   "start": "2024-04-27",
+   "end": "2024-04-28",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.22,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Eintag-Cup",
+   "start": "2024-06-01",
+   "end": "2024-06-01",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "abgesagt",
+     "abgesagt": true
+    }
+   ]
+  },
+  {
+   "name": "Vorregatta IDM",
+   "start": "2024-06-01",
+   "end": "2024-06-02",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2024-06-03",
+   "end": "2024-06-07",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.4,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2024-06-22",
+   "end": "2024-06-23",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Teeny",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B"
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Jugendmeisterschaft",
+   "start": "2024-07-19",
+   "end": "2024-07-24",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.4,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.4,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Cup",
+   "start": "2024-09-07",
+   "end": "2024-09-08",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr / LM",
+   "start": "2024-09-07",
+   "end": "2024-09-08",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "OK-Jolle",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer-Pre-Finale",
+   "start": "2024-10-03",
+   "end": "2024-10-04",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Finale",
+   "start": "2024-10-05",
+   "end": "2024-10-06",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Vaurien",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2025-05-03",
+   "end": "2025-05-04",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.24,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Vaurien",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 7",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "Absage_mangels_Teilnehmer",
+     "abgesagt": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "Absage_mangels_Teilnehmer",
+     "abgesagt": true
+    },
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "Absage_mangels_Teilnehmer",
+     "abgesagt": true
+    }
+   ]
+  },
+  {
+   "name": "Goldener Pfingstochse",
+   "start": "2025-06-07",
+   "end": "2025-06-09",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Goldener Pfingstochse Apres",
+   "start": "2025-06-08",
+   "end": "2025-06-09",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher / LJM",
+   "start": "2025-08-23",
+   "end": "2025-08-24",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "ILCA 4",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "ILCA 6",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "Absage_mangels_Teilnehmer",
+     "abgesagt": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher Regatta / LJM",
+   "start": "2025-08-23",
+   "end": "2025-08-24",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Teeny",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "420er",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer-Cup",
+   "start": "2025-09-06",
+   "end": "2025-09-07",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.08,
+     "bemerkung": "Absage_mangels_Teilnehmer",
+     "abgesagt": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr Dümmer",
+   "start": "2025-09-06",
+   "end": "2025-09-07",
+   "revier": "Dümmer See",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "OK-Jolle",
+     "status": "RR",
+     "faktor": 1.05,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Kupferne Rohrdommel",
+   "start": "2026-05-02",
+   "end": "2026-05-03",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.14,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Vaurien",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2026-05-04",
+   "end": "2026-05-08",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.55,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Goldener Pfingst Ochse / LM",
+   "start": "2026-05-23",
+   "end": "2026-05-24",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.25,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Goldener Pfingst Ochse Apres",
+   "start": "2026-05-24",
+   "end": "2026-05-25",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Conger",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Haubentaucher",
+   "start": "2026-08-22",
+   "end": "2026-08-23",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti A",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Opti B",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer-Cup",
+   "start": "2026-09-05",
+   "end": "2026-09-06",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "O-Jolle",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "abgesagt",
+     "abgesagt": true
+    }
+   ]
+  },
+  {
+   "name": "Glasenuhr",
+   "start": "2026-09-05",
+   "end": "2026-09-06",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Rolf-Rossbacher-Cup",
+   "start": "2026-09-05",
+   "end": "2026-09-06",
+   "revier": "Dümmer",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Flying Junior",
+     "ergebnisse": true
+    }
+   ]
+  }
+ ]
+}
