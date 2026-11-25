@@ -2,7 +2,7 @@ name: Daten aktualisieren und Seite veröffentlichen
 
 on:
   schedule:
-    - cron: "17 */3 * * *"      # alle 3 Stunden (UTC); die API liefert 30 Tage, das Archiv bleibt lückenlos
+    - cron: "23 * * * *"        # stündlich (UTC, bewusst nicht zur vollen Stunde: GitHub verzögert/verwirft dort oft Läufe); die API liefert 30 Tage
   workflow_dispatch:             # von Hand startbar: Reiter "Actions" > Workflow wählen > "Run workflow"
   push:
     branches: [main]
