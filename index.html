@@ -1208,7 +1208,8 @@ const RC_DEFS = [
   // SCC (Veranstalter N.176 SCC)
   {key:"leineweber", name:"Leineweber Pokal", test:n=>/leineweber/i.test(n)},
   {key:"dobben", name:"Dümmer Dobben", test:n=>/dobben/i.test(n)},
-  {key:"seerose", name:"Clarholzer Seerose", test:n=>/clarholzer\s*seerose/i.test(n)}];
+  {key:"seerose", name:"Clarholzer Seerose", test:n=>/clarholzer\s*seerose/i.test(n)},
+  {key:"rohrdommel", name:"Kupferne Rohrdommel", test:n=>/kupferne\s*rohrdommel/i.test(n)}];
 function rcBuildSeries(){
   return RC_DEFS.map(d=>{
     // gleicher Starttag = dieselbe Veranstaltung (z. B. "Glasenuhr" + "Glasenuhr / LJM"): ein Eintrag
