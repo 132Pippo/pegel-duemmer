@@ -1195,21 +1195,6 @@
    ]
   },
   {
-   "name": "Leineweberpokal",
-   "start": "2011-04-22",
-   "end": "2011-04-23",
-   "revier": "Dümmer See",
-   "veranstalter": "N.176 SCC",
-   "klassen": [
-    {
-     "klasse": "420er",
-     "status": "RR",
-     "faktor": 1.1,
-     "ergebnisse": true
-    }
-   ]
-  },
-  {
    "name": "Osterhasen-Cup / LJM-NW",
    "start": "2011-04-22",
    "end": "2011-04-23",

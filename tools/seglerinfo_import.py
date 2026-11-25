@@ -24,7 +24,7 @@ from pathlib import Path
 # Absagen, die auf seglerinfo.de nicht erkennbar sind (Bemerkungsspalte liefert dort oft nur einen Serverfehler): (Start, Namensteil)
 MANUELL_ABGESAGT = {("2020-06-13", "haubentaucher"): "Corona"}
 # Falsche Termine auf seglerinfo.de, die gar nicht stattgefunden haben (Start, Namensteil) – werden beim Import verworfen
-MANUELL_ENTFERNT = {("2017-08-26", "glasen")}
+MANUELL_ENTFERNT = {("2017-08-26", "glasen"), ("2011-04-22", "leineweber")}
 # Regatten, die auf seglerinfo.de fehlen, aber stattgefunden haben (werden beim Import wieder ergänzt)
 MANUELL_ERGAENZT = [
     {"start": "2023-06-10", "end": "2023-06-11", "name": "Haubentaucher", "revier": "Dümmersee", "veranstalter": "N.062 SVH",
