@@ -6,7 +6,7 @@ on:
   workflow_dispatch:             # von Hand startbar: Reiter "Actions" > Workflow wählen > "Run workflow"
   push:
     branches: [main]
-    paths: ["index.html", ".github/workflows/**"]
+    paths: ["index.html", "data/**", ".github/workflows/**"]
 
 permissions:
   contents: write
