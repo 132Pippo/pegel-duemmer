@@ -95,4 +95,10 @@ if __name__ == "__main__":
         print(verdunstung.update())
     except Exception as e:
         print(f"Hinweis: Verdunstung nicht aktualisiert ({e})", file=sys.stderr)
+    # Kommende Regatten (SVH, SCC) von manage2sail.com – ebenfalls unabhängig
+    try:
+        import manage2sail
+        print(manage2sail.update())
+    except Exception as e:
+        print(f"Hinweis: kommende Regatten nicht aktualisiert ({e})", file=sys.stderr)
     sys.exit(rc)

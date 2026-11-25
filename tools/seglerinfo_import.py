@@ -10,6 +10,7 @@ Quelle: https://www.seglerinfo.de/regatten/Veranstaltungen.php?jahr=24&club_abk=
   mehreren Klassen zusammengefasst.
 - Abgesagte Klassen (Bemerkung "abgesagt"/"Absage ...") bleiben mit "abgesagt": true in der Datei; das Dashboard blendet sie aus.
 - Nur Regatten auf dem Dümmer (Revier enthält "mmer") werden übernommen.
+- Nur vergangene Regatten (Ende vor heute); kommende Termine holt manage2sail.py von manage2sail.com.
 - Die Seite wird höflich abgefragt (kurze Pause zwischen den Jahren).
 """
 import html
@@ -126,6 +127,8 @@ def main():
     for ex in MANUELL_ERGAENZT:
         if not any(e["start"] == ex["start"] and ex["name"].lower() in e["name"].lower() for e in alle):
             alle.append(dict(ex))
+    heute = date.today().isoformat()          # Kommende Regatten (Ende heute oder später) liefert manage2sail.py
+    alle = [e for e in alle if e.get("quelle") == "manage2sail" or e["end"] < heute]
     alle.sort(key=lambda e: (e["start"], e["name"]))
     data = {"quelle": f"seglerinfo.de – Termine, Meldeadressen, Ergebnisse (Veranstalter {', '.join(sorted({club_of(e) for e in alle if club_of(e)}))}), abgerufen am "
                       f"{datetime.now().strftime('%d.%m.%Y')} für {y0}–{y1}",

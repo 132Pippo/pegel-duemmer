@@ -31,7 +31,13 @@ Danach läuft die Aktualisierung alle 3 Stunden von selbst und speichert das Arc
 Hinweis: GitHub schaltet geplante Läufe in öffentlichen Repositories ab, wenn 60 Tage lang nichts im Repository passiert;
 dann einmal im Reiter Actions wieder aktivieren.
 
+## Regatten
+
+- Vergangene Regatten (SVH, SCC): `python tools/seglerinfo_import.py` (seglerinfo.de, einmalig/bei Bedarf).
+- Kommende Regatten: `manage2sail.py` (Vereinsseiten bei manage2sail.com), läuft bei jedem `fetch.py`. Es ersetzt bei jedem Lauf alle Einträge ab heute.
+- Manuelle Korrekturen (Absagen, falsche oder fehlende Termine) stehen oben in `tools/seglerinfo_import.py`.
+
 ## Datenquellen
 
 NLWKN Pegelonline und Landesdatenbank (Wasserstand), DWD Station Diepholz (Niederschlag), Open-Meteo (Verdunstung, Vorhersage),
-seglerinfo.de (Regatten). Bei einer öffentlichen Seite die Nutzungsbedingungen dieser Quellen beachten.
+seglerinfo.de (vergangene Regatten), manage2sail.com (kommende Regatten). Bei einer öffentlichen Seite die Nutzungsbedingungen dieser Quellen beachten.
