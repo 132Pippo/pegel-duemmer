@@ -1,6 +1,62 @@
 {
- "quelle": "seglerinfo.de – Termine, Meldeadressen, Ergebnisse (Veranstalter N.062 SVH), abgerufen am 25.11.2026 für 1996–2026",
+ "quelle": "seglerinfo.de – Termine, Meldeadressen, Ergebnisse (Veranstalter SCC, SVH), abgerufen am 25.11.2026 für 1996–2026",
  "regatten": [
+  {
+   "name": "Dümmer Dobben",
+   "start": "2006-04-08",
+   "end": "2006-04-09",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "A-Cat",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen Pokal",
+   "start": "2006-04-14",
+   "end": "2006-04-15",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Teeny",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2006-04-22",
+   "end": "2006-04-23",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.26,
+     "ergebnisse": true
+    }
+   ]
+  },
   {
    "name": "Haubentaucher",
    "start": "2006-05-27",
@@ -33,6 +89,21 @@
    ]
   },
   {
+   "name": "Clarholzer Seerose",
+   "start": "2006-08-19",
+   "end": "2006-08-20",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Dümmer Traditional",
    "start": "2006-08-26",
    "end": "2006-08-27",
@@ -58,6 +129,86 @@
      "klasse": "Europe",
      "status": "RR",
      "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Bellini Cup",
+   "start": "2006-10-21",
+   "end": "2006-10-22",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen Cup",
+   "start": "2007-04-07",
+   "end": "2007-04-08",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2007-04-14",
+   "end": "2007-04-15",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Topcat",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie FX-one",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "A-Cat",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2007-04-21",
+   "end": "2007-04-22",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.26,
      "ergebnisse": true
     }
    ]
@@ -156,6 +307,27 @@
    ]
   },
   {
+   "name": "Clarholzer Glasen",
+   "start": "2007-08-11",
+   "end": "2007-08-12",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Dümmer Traditional",
    "start": "2007-08-25",
    "end": "2007-08-26",
@@ -215,6 +387,44 @@
    ]
   },
   {
+   "name": "Osterhasen Cup",
+   "start": "2008-03-29",
+   "end": "2008-03-30",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Teeny",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2008-04-05",
+   "end": "2008-04-06",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Kupferne Rohrdommel",
    "start": "2008-04-19",
    "end": "2008-04-20",
@@ -225,6 +435,27 @@
      "klasse": "O-Jolle",
      "status": "RR",
      "faktor": 1.24,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweber-Pokal",
+   "start": "2008-04-19",
+   "end": "2008-04-20",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.26,
      "ergebnisse": true
     }
    ]
@@ -313,6 +544,51 @@
    ]
   },
   {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2008-08-04",
+   "end": "2008-08-08",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.4,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Glasen",
+   "start": "2008-08-23",
+   "end": "2008-08-24",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose",
+   "start": "2008-08-23",
+   "end": "2008-08-24",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Dümmer Traditional",
    "start": "2008-08-30",
    "end": "2008-08-31",
@@ -361,6 +637,78 @@
      "klasse": "Pirat",
      "status": "RR",
      "faktor": 1.35,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Eishühner Pokal",
+   "start": "2009-01-03",
+   "end": "2009-01-03",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "DN-Eissegler",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen Cup",
+   "start": "2009-04-10",
+   "end": "2009-04-11",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2009-04-18",
+   "end": "2009-04-19",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "A-Cat",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Topcat",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2009-04-25",
+   "end": "2009-04-26",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.26,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "420er",
      "ergebnisse": true
     }
    ]
@@ -467,6 +815,27 @@
    ]
   },
   {
+   "name": "Clarholzer Seerose",
+   "start": "2009-08-22",
+   "end": "2009-08-23",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Glasenuhr Dümmer",
    "start": "2009-09-05",
    "end": "2009-09-06",
@@ -537,6 +906,63 @@
    ]
   },
   {
+   "name": "Osterhasenpokal / LJM-N",
+   "start": "2010-04-02",
+   "end": "2010-04-03",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer-Dobben",
+   "start": "2010-04-17",
+   "end": "2010-04-18",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 14",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Hobie 16",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Hobie FX-one",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2010-04-24",
+   "end": "2010-04-25",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.26,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
    "name": "Kupferne Rohrdommel",
    "start": "2010-05-01",
    "end": "2010-05-02",
@@ -602,6 +1028,36 @@
    ]
   },
   {
+   "name": "Deutsche Jugend Bestenermittlung",
+   "start": "2010-07-19",
+   "end": "2010-07-23",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.26,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Weller Pokal",
+   "start": "2010-08-14",
+   "end": "2010-08-15",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.22,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Int. Deutsche Meisterschaft",
    "start": "2010-08-16",
    "end": "2010-08-19",
@@ -612,6 +1068,35 @@
      "klasse": "Schwertzugvogel",
      "status": "RR",
      "faktor": 1.6,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Glasen",
+   "start": "2010-08-21",
+   "end": "2010-08-22",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.25,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose",
+   "start": "2010-08-21",
+   "end": "2010-08-22",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "faktor": 1.3,
      "ergebnisse": true
     }
    ]
@@ -689,6 +1174,57 @@
    ]
   },
   {
+   "name": "Dümmer-Dobben",
+   "start": "2011-04-02",
+   "end": "2011-04-03",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie FX-one",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweberpokal",
+   "start": "2011-04-22",
+   "end": "2011-04-23",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen-Cup / LJM-NW",
+   "start": "2011-04-22",
+   "end": "2011-04-23",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Kupferne Rohrdommel",
    "start": "2011-04-30",
    "end": "2011-05-01",
@@ -717,6 +1253,21 @@
      "klasse": "ILCA 6",
      "status": "RR",
      "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweberpokal",
+   "start": "2011-04-30",
+   "end": "2011-05-01",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.26,
      "ergebnisse": true
     }
    ]
@@ -765,6 +1316,21 @@
     {
      "klasse": "Opti B",
      "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Weller Pokal",
+   "start": "2011-08-13",
+   "end": "2011-08-14",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.25,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
     }
    ]
   },
@@ -827,6 +1393,32 @@
   },
   {
    "name": "Int. Deutsche Meisterschaft",
+   "start": "2011-09-08",
+   "end": "2011-09-11",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Bestenermittlung",
+   "start": "2011-09-10",
+   "end": "2011-09-11",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
    "start": "2011-09-12",
    "end": "2011-09-16",
    "revier": "Dümmer See",
@@ -836,6 +1428,36 @@
      "klasse": "Schwertzugvogel",
      "status": "RR",
      "faktor": 1.6,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Glasen",
+   "start": "2011-09-24",
+   "end": "2011-09-25",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose",
+   "start": "2011-09-24",
+   "end": "2011-09-25",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
      "ergebnisse": true
     }
    ]
@@ -852,6 +1474,68 @@
      "status": "RR",
      "faktor": 1.35,
      "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen Cup",
+   "start": "2012-04-06",
+   "end": "2012-04-07",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2012-04-14",
+   "end": "2012-04-15",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweberpokal",
+   "start": "2012-04-21",
+   "end": "2012-04-22",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.26,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweberpokal / LJM-N",
+   "start": "2012-04-21",
+   "end": "2012-04-22",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
     }
    ]
   },
@@ -912,6 +1596,21 @@
    ]
   },
   {
+   "name": "Weller Pokal",
+   "start": "2012-08-18",
+   "end": "2012-08-19",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
    "name": "Dümmer Traditional",
    "start": "2012-08-25",
    "end": "2012-08-26",
@@ -955,6 +1654,27 @@
    ]
   },
   {
+   "name": "Clarholzer Seerose",
+   "start": "2012-09-22",
+   "end": "2012-09-23",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
    "name": "Dümmer Finale",
    "start": "2012-10-06",
    "end": "2012-10-07",
@@ -969,6 +1689,44 @@
      "klasse": "Pirat",
      "status": "RR",
      "faktor": 1.35,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2013-04-13",
+   "end": "2013-04-14",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2013-04-20",
+   "end": "2013-04-21",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.3,
      "ergebnisse": true
     }
    ]
@@ -1050,6 +1808,21 @@
      "status": "RR",
      "faktor": 1.55,
      "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Weller Pokal",
+   "start": "2013-08-17",
+   "end": "2013-08-18",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Schwertzugvogel",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
     }
    ]
   },
@@ -1148,6 +1921,36 @@
    ]
   },
   {
+   "name": "Clarholzer Glasen",
+   "start": "2013-09-28",
+   "end": "2013-09-29",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose",
+   "start": "2013-09-28",
+   "end": "2013-09-29",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Dümmer Finale",
    "start": "2013-10-05",
    "end": "2013-10-06",
@@ -1182,6 +1985,38 @@
    ]
   },
   {
+   "name": "Dümmer Dobben",
+   "start": "2014-04-12",
+   "end": "2014-04-13",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen Cup",
+   "start": "2014-04-18",
+   "end": "2014-04-19",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Kupferne Rohrdommel",
    "start": "2014-04-26",
    "end": "2014-04-27",
@@ -1210,6 +2045,27 @@
      "klasse": "ILCA 4",
      "status": "RR",
      "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2014-04-26",
+   "end": "2014-04-27",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.3,
      "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
     }
    ]
@@ -1318,6 +2174,34 @@
    ]
   },
   {
+   "name": "Clarholzer Glasen",
+   "start": "2014-09-20",
+   "end": "2014-09-21",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose",
+   "start": "2014-09-20",
+   "end": "2014-09-21",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Dümmer Pre Finale",
    "start": "2014-10-03",
    "end": "2014-10-04",
@@ -1371,6 +2255,44 @@
      "status": "RR",
      "faktor": 1.0,
      "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2015-04-11",
+   "end": "2015-04-12",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2015-04-25",
+   "end": "2015-04-26",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.15,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
     }
    ]
   },
@@ -1546,6 +2468,36 @@
    ]
   },
   {
+   "name": "Clarholzer Glasen",
+   "start": "2015-09-19",
+   "end": "2015-09-20",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose / LM",
+   "start": "2015-09-19",
+   "end": "2015-09-20",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.32,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Dümmer Finale",
    "start": "2015-10-03",
    "end": "2015-10-04",
@@ -1588,6 +2540,43 @@
      "klasse": "15qm - (P) Jollenkreuzer",
      "status": "RR",
      "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2016-04-09",
+   "end": "2016-04-10",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2016-04-23",
+   "end": "2016-04-24",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
      "ergebnisse": true
     }
    ]
@@ -1713,6 +2702,26 @@
    ]
   },
   {
+   "name": "Clarholzer Seerose",
+   "start": "2016-09-17",
+   "end": "2016-09-18",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Dümmer Pre- Finale",
    "start": "2016-10-01",
    "end": "2016-10-02",
@@ -1762,6 +2771,42 @@
      "status": "RR",
      "faktor": 1.0,
      "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen Cup",
+   "start": "2017-04-14",
+   "end": "2017-04-15",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Leineweberpokal",
+   "start": "2017-04-22",
+   "end": "2017-04-23",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "420er",
+     "status": "RR",
+     "faktor": 1.15,
+     "ergebnisse": true
     }
    ]
   },
@@ -1956,6 +3001,21 @@
    ]
   },
   {
+   "name": "Clarholzer Glasen",
+   "start": "2017-09-16",
+   "end": "2017-09-17",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
    "name": "Dümmerfinale",
    "start": "2017-09-30",
    "end": "2017-10-01",
@@ -2001,6 +3061,44 @@
      "status": "RR",
      "faktor": 1.2,
      "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer-Dobben",
+   "start": "2018-04-14",
+   "end": "2018-04-15",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweberpokal",
+   "start": "2018-04-21",
+   "end": "2018-04-22",
+   "revier": "Dümmer",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.3,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
     }
    ]
   },
@@ -2150,6 +3248,34 @@
    ]
   },
   {
+   "name": "Clarholzer Glasen",
+   "start": "2018-09-15",
+   "end": "2018-09-16",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose",
+   "start": "2018-09-15",
+   "end": "2018-09-16",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
    "name": "Dümmer Finale",
    "start": "2018-10-06",
    "end": "2018-10-07",
@@ -2163,6 +3289,58 @@
     {
      "klasse": "Vaurien",
      "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2019-04-13",
+   "end": "2019-04-14",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen Cup",
+   "start": "2019-04-19",
+   "end": "2019-04-20",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweberpokal",
+   "start": "2019-04-27",
+   "end": "2019-04-28",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
     }
    ]
   },
@@ -2347,6 +3525,27 @@
    ]
   },
   {
+   "name": "Clarholzer Glasen",
+   "start": "2019-09-14",
+   "end": "2019-09-15",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
    "name": "Pre-Finale",
    "start": "2019-10-03",
    "end": "2019-10-04",
@@ -2382,6 +3581,53 @@
     },
     {
      "klasse": "Vaurien",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2020-04-04",
+   "end": "2020-04-05",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 14",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Hobie 16",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Osterhasenregatta",
+   "start": "2020-04-10",
+   "end": "2020-04-11",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2020-04-18",
+   "end": "2020-04-19",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    },
+    {
+     "klasse": "Europe",
      "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
     }
    ]
@@ -2594,6 +3840,38 @@
    ]
   },
   {
+   "name": "Clarholzer Seerose",
+   "start": "2021-07-17",
+   "end": "2021-07-18",
+   "revier": "Dümmerseen",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2021-09-25",
+   "end": "2021-09-26",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
    "name": "Int. Deutsche Jugendmeisterschaft",
    "start": "2021-09-30",
    "end": "2021-10-03",
@@ -2617,6 +3895,55 @@
      "klasse": "Conger",
      "status": "RR",
      "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2022-04-09",
+   "end": "2022-04-10",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen-Cup",
+   "start": "2022-04-14",
+   "end": "2022-04-15",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2022-04-23",
+   "end": "2022-04-24",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
      "ergebnisse": true
     }
    ]
@@ -2646,6 +3973,21 @@
     },
     {
      "klasse": "ILCA 4",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leusinger",
+   "start": "2022-05-21",
+   "end": "2022-05-22",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
      "ergebnisse": true
     }
    ]
@@ -2688,6 +4030,81 @@
      "klasse": "Europe",
      "status": "RR",
      "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Glasen",
+   "start": "2022-07-16",
+   "end": "2022-07-17",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose",
+   "start": "2022-07-16",
+   "end": "2022-07-17",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Vorregatta IDM",
+   "start": "2022-07-26",
+   "end": "2022-07-27",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Gerhardt Höppner Gedächtnispreis",
+   "start": "2022-07-28",
+   "end": "2022-07-31",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "16qm-(S) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Int. Deutsche Meisterschaft",
+   "start": "2022-07-28",
+   "end": "2022-07-31",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.4,
      "ergebnisse": true
     }
    ]
@@ -2769,6 +4186,40 @@
      "klasse": "Conger",
      "status": "RR",
      "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen Cup",
+   "start": "2023-04-06",
+   "end": "2023-04-07",
+   "revier": "Dümmer",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "bemerkung": "502 Bad Gateway 502 Bad Gateway nginx/1.22.1"
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2023-04-22",
+   "end": "2023-04-23",
+   "revier": "Dümmer",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
      "ergebnisse": true
     }
    ]
@@ -2899,6 +4350,36 @@
    ]
   },
   {
+   "name": "Osterhasen Cup",
+   "start": "2024-03-29",
+   "end": "2024-03-30",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweber Pokal",
+   "start": "2024-04-20",
+   "end": "2024-04-21",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Europe",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Kupferne Rohrdommel",
    "start": "2024-04-27",
    "end": "2024-04-28",
@@ -2985,6 +4466,21 @@
      "klasse": "Conger",
      "status": "RR",
      "faktor": 1.4,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose",
+   "start": "2024-06-15",
+   "end": "2024-06-16",
+   "revier": "Dümmersee",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.3,
      "ergebnisse": true
     }
    ]
@@ -3099,6 +4595,59 @@
    ]
   },
   {
+   "name": "Dümmer Dobben",
+   "start": "2025-04-12",
+   "end": "2025-04-13",
+   "revier": "Dümmer",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Osterhasen Cup",
+   "start": "2025-04-18",
+   "end": "2025-04-19",
+   "revier": "Dümmer",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweberpokal",
+   "start": "2025-04-26",
+   "end": "2025-04-27",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.3,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Kupferne Rohrdommel",
    "start": "2025-05-03",
    "end": "2025-05-04",
@@ -3167,6 +4716,22 @@
      "status": "RR",
      "faktor": 1.2,
      "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose",
+   "start": "2025-06-14",
+   "end": "2025-06-15",
+   "revier": "Dümmer",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.32,
+     "bemerkung": "Absage_mangels_Teilnehmer",
+     "abgesagt": true
     }
    ]
   },
@@ -3263,6 +4828,53 @@
    ]
   },
   {
+   "name": "Osterhasen Cup",
+   "start": "2026-04-03",
+   "end": "2026-04-04",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Pirat",
+     "status": "RR",
+     "faktor": 1.0,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Dümmer Dobben",
+   "start": "2026-04-11",
+   "end": "2026-04-12",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 16",
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Leineweberpokal",
+   "start": "2026-04-25",
+   "end": "2026-04-26",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Europe",
+     "status": "RR",
+     "faktor": 1.1,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
    "name": "Kupferne Rohrdommel",
    "start": "2026-05-02",
    "end": "2026-05-03",
@@ -3324,6 +4936,38 @@
      "klasse": "Conger",
      "status": "RR",
      "faktor": 1.2,
+     "ergebnisse": true
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Leuchtturm",
+   "start": "2026-06-13",
+   "end": "2026-06-14",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "Hobie 14",
+     "ergebnisse": true
+    },
+    {
+     "klasse": "Hobie 16",
+     "bemerkung": "nicht_ausgesegelt"
+    }
+   ]
+  },
+  {
+   "name": "Clarholzer Seerose / LM",
+   "start": "2026-06-13",
+   "end": "2026-06-14",
+   "revier": "Dümmer See",
+   "veranstalter": "N.176 SCC",
+   "klassen": [
+    {
+     "klasse": "15qm - (P) Jollenkreuzer",
+     "status": "RR",
+     "faktor": 1.32,
      "ergebnisse": true
     }
    ]

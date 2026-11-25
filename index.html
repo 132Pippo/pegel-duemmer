@@ -1204,7 +1204,11 @@ const RC_DEFS = [
   {key:"haubentaucher", name:"Haubentaucher", test:n=>/haubentaucher/i.test(n)},
   {key:"glasenuhr", name:"Glasenuhr", test:n=>/glasen+uhr/i.test(n)},
   {key:"finale", name:"Dümmer Finale / GPO", test:n=>!/(^|[^a-z])pre([^a-z]|$)|apres|après/i.test(n) && /finale|pfingst\s*ochse/i.test(n)},
-  {key:"prefinale", name:"Dümmer Pre-/Après-Finale / GPO Après", test:n=>/pre[\s-]*finale|apres|après/i.test(n)}];
+  {key:"prefinale", name:"Dümmer Pre-/Après-Finale / GPO Après", test:n=>/pre[\s-]*finale|apres|après/i.test(n)},
+  // SCC (Veranstalter N.176 SCC)
+  {key:"leineweber", name:"Leineweber Pokal", test:n=>/leineweber/i.test(n)},
+  {key:"dobben", name:"Dümmer Dobben", test:n=>/dobben/i.test(n)},
+  {key:"seerose", name:"Clarholzer Seerose", test:n=>/clarholzer\s*seerose/i.test(n)}];
 function rcBuildSeries(){
   return RC_DEFS.map(d=>{
     // gleicher Starttag = dieselbe Veranstaltung (z. B. "Glasenuhr" + "Glasenuhr / LJM"): ein Eintrag
