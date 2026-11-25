@@ -3840,6 +3840,19 @@
    ]
   },
   {
+   "start": "2021-08-28",
+   "end": "2021-08-29",
+   "name": "Glasenuhr",
+   "revier": "Dümmersee",
+   "veranstalter": "N.062 SVH",
+   "klassen": [
+    {
+     "klasse": "Klassen nicht erfasst",
+     "bemerkung": "manuell ergänzt (fehlt auf seglerinfo.de)"
+    }
+   ]
+  },
+  {
    "name": "Leineweber Pokal",
    "start": "2021-09-25",
    "end": "2021-09-26",

@@ -29,6 +29,8 @@ MANUELL_ENTFERNT = {("2017-08-26", "glasen")}
 MANUELL_ERGAENZT = [
     {"start": "2023-06-10", "end": "2023-06-11", "name": "Haubentaucher", "revier": "Dümmersee", "veranstalter": "N.062 SVH",
      "klassen": [{"klasse": "Klassen nicht erfasst", "bemerkung": "manuell ergänzt (fehlt auf seglerinfo.de)"}]},
+    {"start": "2021-08-28", "end": "2021-08-29", "name": "Glasenuhr", "revier": "Dümmersee", "veranstalter": "N.062 SVH",
+     "klassen": [{"klasse": "Klassen nicht erfasst", "bemerkung": "manuell ergänzt (fehlt auf seglerinfo.de)"}]},
 ]
 OUT = Path(__file__).resolve().parents[1] / "data" / "regatten.json"
 URL = "https://www.seglerinfo.de/regatten/Veranstaltungen.php?jahr={yy:02d}&klasse=&monat=&revier=&region=&dsvnr=&club_abk={club}"
