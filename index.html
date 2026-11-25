@@ -1197,19 +1197,17 @@ function rcLevels(){
   for(const p of bucket(all,864e5)) if(!rcLvl.has(p.x)) rcLvl.set(p.x,p.y);        // Archiv: Tagesmittel (12:00 UTC wie die Jahrbuchwerte)
   return rcLvl;
 }
-// Feste Regatta-Serien (Namensvarianten und Nachfolger zusammengefasst):
-//  · Dümmer Finale (Oktober) – ab 2025 löst der Goldene Pfingstochse (GPO, Pfingsten) es ab
-//  · Dümmer Pre-/Après-Finale – ab 2025 GPO Après; gleiche Termine wie in seglerinfo.de
+// Feste Regatta-Serien (Namensvarianten und Nachfolger zusammengefasst), in der Reihenfolge des Auswahlfelds.
+// GPO (Goldener Pfingstochse, Pfingsten) löst ab 2025 das Dümmer Finale (Oktober) ab; das Pre-/Après-Finale ist nicht enthalten.
 const RC_DEFS = [
-  {key:"haubentaucher", name:"Haubentaucher", test:n=>/haubentaucher/i.test(n)},
-  {key:"glasenuhr", name:"Glasenuhr", test:n=>/glasen+uhr/i.test(n)},
-  {key:"finale", name:"Dümmer Finale / GPO", test:n=>!/(^|[^a-z])pre([^a-z]|$)|apres|après/i.test(n) && /finale|pfingst\s*ochse/i.test(n)},
-  {key:"prefinale", name:"Dümmer Pre-/Après-Finale / GPO Après", test:n=>/pre[\s-]*finale|apres|après/i.test(n)},
-  // SCC (Veranstalter N.176 SCC)
-  {key:"leineweber", name:"Leineweber Pokal", test:n=>/leineweber/i.test(n)},
   {key:"dobben", name:"Dümmer Dobben", test:n=>/dobben/i.test(n)},
+  {key:"osterhasen", name:"Osterhasen Cup", test:n=>/osterhasen/i.test(n)},
+  {key:"leineweber", name:"Leineweber Pokal", test:n=>/leineweber/i.test(n)},
+  {key:"rohrdommel", name:"Kupferne Rohrdommel", test:n=>/kupferne\s*rohrdommel/i.test(n)},
+  {key:"finale", name:"GPO (früher Dümmer Finale)", test:n=>!/(^|[^a-z])pre([^a-z]|$)|apres|après/i.test(n) && /finale|pfingst\s*ochse/i.test(n)},
   {key:"seerose", name:"Clarholzer Seerose", test:n=>/clarholzer\s*seerose/i.test(n)},
-  {key:"rohrdommel", name:"Kupferne Rohrdommel", test:n=>/kupferne\s*rohrdommel/i.test(n)}];
+  {key:"haubentaucher", name:"Haubentaucher", test:n=>/haubentaucher/i.test(n)},
+  {key:"glasenuhr", name:"Glasenuhr", test:n=>/glasen+uhr/i.test(n)}];
 function rcBuildSeries(){
   return RC_DEFS.map(d=>{
     // gleicher Starttag = dieselbe Veranstaltung (z. B. "Glasenuhr" + "Glasenuhr / LJM"): ein Eintrag
